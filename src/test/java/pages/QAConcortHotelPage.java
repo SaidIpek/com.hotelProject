@@ -33,9 +33,7 @@ public class QAConcortHotelPage {
         QAConcortHotelPage qaConcortHotelPage = new QAConcortHotelPage();
         Thread.sleep(1000);
         qaConcortHotelPage.ilkLoginLinki.click();
-        Thread.sleep(2000);
         qaConcortHotelPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
-        Thread.sleep(1000);
         qaConcortHotelPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
         Thread.sleep(2000);
         qaConcortHotelPage.loginButonu.click();

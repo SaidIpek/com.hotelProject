@@ -11,8 +11,8 @@ public class Tc_001   {
     public void test () throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortHotelPage qaConcortHotelPage = new QAConcortHotelPage();
-        Thread.sleep(1000);
         qaConcortHotelPage.ConcortHotelLogin();
         Driver.closeDriver();
+
     }
 }
