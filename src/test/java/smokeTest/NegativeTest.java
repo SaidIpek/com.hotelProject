@@ -5,6 +5,6 @@ import org.testng.annotations.Test;
 public class NegativeTest {
     @Test
     public void test(){
-        System.out.println("Deneme");
+        System.out.println("de");
     }
 }
