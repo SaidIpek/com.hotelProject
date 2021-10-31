@@ -6,7 +6,7 @@ public class Tc_001 {
 
     @Test
     public void test() {
-        System.out.println("tam gaz calismaya devam ");
+        System.out.println("ama olmuyor olmuyor isteeegit ");
 
     }
 }
