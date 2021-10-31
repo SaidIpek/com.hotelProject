@@ -6,7 +6,7 @@ public class Tc_001 {
 
     @Test
     public void test() {
-        System.out.println("ama olmuyor olmuyor isteeegit ");
+        System.out.println("neyse olacak sanki ");
 
     }
 }
