@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.Driver;
 public class Tc_002 {
+
     //2) Advanced Search text boxlari, dropdownlari ve search butonu etkin olmali.
+
     @Test
     public void test () throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();

@@ -7,7 +7,9 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class Tc_001 {
+
     // 1) Rooms sayfasina girilebilmeli.
+
     @Test
     public void test () throws InterruptedException {
 
