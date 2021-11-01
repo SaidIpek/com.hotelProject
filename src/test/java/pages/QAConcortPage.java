@@ -277,6 +277,9 @@ public class QAConcortPage {
     @FindBy(id = "EmailAddress")
     public WebElement TodBruenOdaSayfasindakiEmailTextboxi;
 
+    @FindBy(id = "PhoneNumber")
+    public WebElement TodBruenOdaSayfasindakiPhoneNumberTextboxi;
+
     @FindBy(id = "NameOnCreditCard")
     public WebElement TodBruenOdaSayfasindakiNameOnCreditCardTextboxi;
 
