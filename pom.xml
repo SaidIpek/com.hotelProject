@@ -7,6 +7,12 @@
     <groupId>org.example</groupId>
     <artifactId>com.hotelProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+    </properties>
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -59,15 +65,9 @@
             <version>4.0.9</version>
         </dependency>
 
-
-
-
-
-
     </dependencies>
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
+
+
+
 
 </project>

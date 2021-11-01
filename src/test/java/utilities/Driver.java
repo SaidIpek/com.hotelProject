@@ -43,8 +43,8 @@ public class Driver {
                     break;
 
                 default:
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
             }
 
             driver.manage().window().maximize();
