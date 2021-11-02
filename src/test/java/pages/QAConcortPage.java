@@ -45,151 +45,50 @@ public class QAConcortPage {
 //US0001 test locatorleri
 
 
-
-
-
-
-
-
-
-
     //US0002  test locatorleri
 
 
-
-
-
-
-
-
-
-
-
-
-
     //US0003 test locatorleri
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //US0004-US0005 ortak alan locatorleri
     //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
 
 
-
-
-
-
-
-
-
-
-
-
     //US0004 test locatorleri
 
 
-
-
-
-
     //US0005 test locatorleri
-
-
-
-
-
-
 
 
     //US0006-US0007 ortak alan locatorleri
     //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
 
 
-
-
-
-
-
     //US0006 test locatorleri
 
 
-
-
-
-
-
-
-
-
-
     //US0007 test locatorleri
-
-
-
-
-
-
 
 
     //US0008-US0009 ortak alan locatorleri
     //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
 
 
-
-
-
-
-
-
-
-
-
-
-
     //US0008 test locatorleri
 
 
-
-
-
-
-
-
-
-
-
     //US0009 test locatorleri
-
-
-
-
-
-
-
-
 
 
     //US0010 test locatorleri
     @FindBy(xpath = "(//a[@class='nav-link'])[2]")
     public WebElement AnaSayfaRoomsSecenegi;
 
-    public void ConcortHotelRoomsGiris() throws InterruptedException {
+    public void ConcortHotelRoomsGiris() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
-        Thread.sleep(1000);
         qaConcortPage.AnaSayfaRoomsSecenegi.click();
-        Thread.sleep(2000);
     }
 
     //Rooms sayfasi
@@ -203,13 +102,10 @@ public class QAConcortPage {
         actions.sendKeys(qaConcortPage.advancedSearchBasligiCheckoutDateBox, "20/12/2021").perform();
         Select select = new Select(qaConcortPage.selectRoomTypeDropdown);
         select.selectByVisibleText("Single");
-        //Thread.sleep(1000);
         Select select1 = new Select(qaConcortPage.selectAdultCountDropdown);
         select1.selectByVisibleText("1 Adult");
-        // Thread.sleep(1000);
         Select select2 = new Select(qaConcortPage.childrenDropdown);
         select2.selectByVisibleText("0 Children");
-        //Thread.sleep(1000);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Thread.sleep(1000);
         actions.sendKeys(qaConcortPage.locationTextBox, "USA").perform();
@@ -256,7 +152,7 @@ public class QAConcortPage {
     @FindBy(id = "checkin_date")
     public WebElement TodBruenOdaSayfasindakiCheckinDateBox;
 
-    @FindBy (xpath = "(//tbody//tr//td)[16]")
+    @FindBy(xpath = "(//tbody//tr//td)[16]")
     public WebElement TodBruenOdaSayfasindakiCheckinDateTakvimi;
 
     @FindBy(id = "checkout_date")
@@ -303,5 +199,11 @@ public class QAConcortPage {
 
     @FindBy(xpath = "//div[@class='bootbox-body']")
     public WebElement reservationWasMadeSuccessfully;
+
+    @FindBy(xpath = "//*[text()='This field is required.']")
+    public WebElement thisFieldIsRequiredYazisi;
+
+    @FindBy(xpath = "//div[@class='col-md-12 room-single mt-4 mb-5 ftco-animate fadeInUp ftco-animated']")
+    public WebElement theBestHotelInTheRegionYazisi;
 
 }

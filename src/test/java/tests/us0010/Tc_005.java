@@ -21,13 +21,12 @@ public class Tc_005 {
     @Test
     public void test() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
-        Thread.sleep(2000);
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
-        qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
-        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
+        qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
+        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
         qaConcortPage.loginButonu.click();
 
@@ -38,7 +37,7 @@ public class Tc_005 {
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
                 .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi));
-                actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
+        actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
         select.selectByVisibleText("1 Adult");
@@ -46,9 +45,10 @@ public class Tc_005 {
         Select select1 = new Select(qaConcortPage.TodBruenOdaSayfasindakiChildrenDropdown);
         select1.selectByVisibleText("0 Children");
 
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.clear();
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
@@ -59,7 +59,7 @@ public class Tc_005 {
         Select select3 = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationMonthForCreditCardDropdownu);
         select3.selectByVisibleText("January");
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCVVTextboxi, "123")
-                .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini istiyorum")
+                .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini rica ederim")
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
