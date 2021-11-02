@@ -22,10 +22,9 @@ public class Tc_004 {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
-        Thread.sleep(2000);
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
-        qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
-        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
+        qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
+        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
         qaConcortPage.loginButonu.click();
 
