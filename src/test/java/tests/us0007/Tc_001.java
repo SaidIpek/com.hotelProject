@@ -1,10 +1,16 @@
 package tests.us0007;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+
+
 public class Tc_001 {
+
+
+
 
         // 1) Rooms sayfasina girilebilmeli.
         @Test
@@ -15,4 +21,5 @@ public class Tc_001 {
             Assert.assertTrue(qaConcortPage.roomsSayfasiRoomsBasligi.getText().equals("Rooms"),"Rooms sayfasindaki rooms basligi gorunmuyor!");
             Driver.closeDriver();
         }
+
 }
