@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Tc_005 {
 
@@ -21,22 +22,22 @@ public class Tc_005 {
     @Test
     public void test() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        ReusableMethods rm = new ReusableMethods();
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
+        rm.waitForClickablility(qaConcortPage.loginButonu,10);
         qaConcortPage.loginButonu.click();
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
         actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
-        wait.until(ExpectedConditions.visibilityOf(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi));
+        rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi,5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
                 .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi));
+        rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi,10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
@@ -48,7 +49,8 @@ public class Tc_005 {
         qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.clear();
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
+        rm.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
