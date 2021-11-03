@@ -33,14 +33,17 @@ public class QAConcortPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-    public void ConcortHotelLogin() throws InterruptedException {
+    public void ConcortHotelLogin()  {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
-        Thread.sleep(2000);
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
-        Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         qaConcortPage.loginButonu.click();
     }
 //US0001 test locatorleri

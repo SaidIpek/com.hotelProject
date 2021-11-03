@@ -28,16 +28,16 @@ public class Tc_005 {
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        rm.waitForClickablility(qaConcortPage.loginButonu,10);
+        rm.waitForClickablility(qaConcortPage.loginButonu, 10);
         qaConcortPage.loginButonu.click();
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
         actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
-        rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi,5);
+        rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
                 .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
-        rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi,10);
+        rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
