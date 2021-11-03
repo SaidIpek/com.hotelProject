@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Tc_003 {
 
