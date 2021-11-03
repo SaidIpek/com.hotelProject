@@ -19,7 +19,7 @@ public class Tc_004 {
     @Test
     public void test() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
@@ -28,20 +28,20 @@ public class Tc_004 {
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
         qaConcortPage.loginButonu.click();
 
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateBox.isEnabled(),"Check in date boxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateBox.isEnabled(),"Check out date boxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown.isEnabled(),"Select Adult Count dropdowni etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiChildrenDropdown.isEnabled(),"Children dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.isEnabled(),"Name-surname textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.isEnabled(),"Email textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi.isEnabled(),"Phone number textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi.isEnabled(),"Name On Credit Card textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCreditCardNumberTextboxi.isEnabled(),"Credit Card Number textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationYearForCreditCardDropdownu.isEnabled(),"Select Expiration Year For Credit Card Dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationMonthForCreditCardDropdownu.isEnabled(),"Select Expiration Month For Credit Card Dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCVVTextboxi.isEnabled(),"CVV textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi.isEnabled(),"Message textboxi etkin degil!");
-        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu.isEnabled(),"Book This Room butonu etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateBox.isEnabled(), "Check in date boxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateBox.isEnabled(), "Check out date boxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown.isEnabled(), "Select Adult Count dropdowni etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiChildrenDropdown.isEnabled(), "Children dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.isEnabled(), "Name-surname textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.isEnabled(), "Email textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi.isEnabled(), "Phone number textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi.isEnabled(), "Name On Credit Card textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCreditCardNumberTextboxi.isEnabled(), "Credit Card Number textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationYearForCreditCardDropdownu.isEnabled(), "Select Expiration Year For Credit Card Dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationMonthForCreditCardDropdownu.isEnabled(), "Select Expiration Month For Credit Card Dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCVVTextboxi.isEnabled(), "CVV textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi.isEnabled(), "Message textboxi etkin degil!");
+        Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu.isEnabled(), "Book This Room butonu etkin degil!");
 
 
         Driver.closeDriver();
