@@ -96,7 +96,7 @@ public class QAConcortPage {
     }
 
     //Rooms sayfasi
-    public void ConcortHotelRoomsBilgiGiris() throws InterruptedException {
+    public void ConcortHotelRoomsBilgiGiris() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         ReusableMethods rm = new ReusableMethods();
         Actions actions = new Actions(Driver.getDriver());
@@ -111,7 +111,7 @@ public class QAConcortPage {
         select1.selectByVisibleText("1 Adult");
         Select select2 = new Select(qaConcortPage.childrenDropdown);
         select2.selectByVisibleText("0 Children");
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        rm.scrollInToWiew(qaConcortPage.searchButton);
         rm.waitFor(1);
         actions.sendKeys(qaConcortPage.locationTextBox, "USA").perform();
         rm.waitFor(1);
