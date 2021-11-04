@@ -46,44 +46,6 @@ public class QAConcortPage {
         }
         qaConcortPage.loginButonu.click();
     }
-//US0001 test locatorleri
-
-
-    //US0002  test locatorleri
-
-
-    //US0003 test locatorleri
-
-
-    //US0004-US0005 ortak alan locatorleri
-    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
-
-
-    //US0004 test locatorleri
-
-
-    //US0005 test locatorleri
-
-
-    //US0006-US0007 ortak alan locatorleri
-    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
-
-
-    //US0006 test locatorleri
-
-
-    //US0007 test locatorleri
-
-
-    //US0008-US0009 ortak alan locatorleri
-    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
-
-
-    //US0008 test locatorleri
-
-
-    //US0009 test locatorleri
-
 
     //US0010 test locatorleri
     @FindBy(xpath = "(//a[@class='nav-link'])[2]")
@@ -96,7 +58,7 @@ public class QAConcortPage {
     }
 
     //Rooms sayfasi
-    public void ConcortHotelRoomsBilgiGiris() throws InterruptedException {
+    public void ConcortHotelRoomsBilgiGiris() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         ReusableMethods rm = new ReusableMethods();
         Actions actions = new Actions(Driver.getDriver());
@@ -111,7 +73,7 @@ public class QAConcortPage {
         select1.selectByVisibleText("1 Adult");
         Select select2 = new Select(qaConcortPage.childrenDropdown);
         select2.selectByVisibleText("0 Children");
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        rm.scrollInToWiew(qaConcortPage.searchButton);
         rm.waitFor(1);
         actions.sendKeys(qaConcortPage.locationTextBox, "USA").perform();
         rm.waitFor(1);

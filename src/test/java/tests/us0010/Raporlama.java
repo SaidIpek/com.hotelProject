@@ -1,38 +1,38 @@
 package tests.us0010;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class Tc_005 {
-
-    //5-Room kriterleri girilip "Book This Room" butonu tiklandiktan sonra "Reservation was made
-    //successfully Your Reservation Link is : here" yazisi gorunur olmali.
-
+public class Raporlama extends TestBaseRapor {
     @Test
-    public void test() throws InterruptedException {
+    public void test1() {
+
+        extentTest = extentReports.createTest("Rezervasyon Testi", "Ilgili bilgiler girilince rezervasyon yapilabilabilmeli!");
         QAConcortPage qaConcortPage = new QAConcortPage();
-        ReusableMethods rm = new ReusableMethods();
         qaConcortPage.ConcortHotelRoomsGiris();
+        extentTest.info("Concort Hotel/Rooms sayfasina gidildi");
+
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
+        extentTest.info("Oda kriterleri girildi!");
+
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        rm.waitForClickablility(qaConcortPage.loginButonu, 10);
         qaConcortPage.loginButonu.click();
+        extentTest.info("Kullanici adi ve sifresiyle kisisel bilgiler sayfasina gidildi.");
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
+        ReusableMethods rm = new ReusableMethods();
         actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
         rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
@@ -63,8 +63,11 @@ public class Tc_005 {
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini rica ederim")
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
+        extentTest.info("Kisisel bilgiler girildi ve rezervasyon tamamlandi.");
 
-        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfully.isDisplayed(), "Reservation was made successfully yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfully.isDisplayed());
+        extentTest.pass("Reservation was made successfully yazisi goruldu.");
+
         Driver.closeDriver();
     }
 }
