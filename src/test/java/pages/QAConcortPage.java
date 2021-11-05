@@ -13,6 +13,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -38,7 +40,7 @@ public class QAConcortPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-    public void ConcortHotelLogin()  {
+    public void ConcortHotelLogin() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();
@@ -145,26 +147,132 @@ public class QAConcortPage {
             Random rnd = new Random();
             int detail = rnd.nextInt(10) + 1;
 
-                if (!random.contains(detail)){
-                    random.add(detail);
-                    Assert.assertTrue(Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isDisplayed(),"Details Button is not Displayed");
-                    Assert.assertTrue( Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isEnabled());
-                    Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
-                    Assert.assertEquals(qaConcortPage.editHotelRoomElement.getText(), ConfigReader.getProperty("EditHotelRoomElementi"),"Edit Hotelroom element is not Displayed");
-                    Assert.assertTrue(qaConcortPage.generalDataElement.isDisplayed());
-                    Assert.assertEquals(qaConcortPage.hotelRoomDataElement.getText(),ConfigReader.getProperty("HotelRoomDataElementi"));
-                    Driver.getDriver().navigate().back();
-                    count++;
-
-
+            if (!random.contains(detail)){
+                random.add(detail);
+                Assert.assertTrue(Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isDisplayed(),"Details Button is not Displayed");
+                Assert.assertTrue( Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isEnabled());
+                Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
+                Assert.assertEquals(qaConcortPage.editHotelRoomElement.getText(), ConfigReader.getProperty("EditHotelRoomElementi"),"Edit Hotelroom element is not Displayed");
+                Assert.assertTrue(qaConcortPage.generalDataElement.isDisplayed());
+                Assert.assertEquals(qaConcortPage.hotelRoomDataElement.getText(),ConfigReader.getProperty("HotelRoomDataElementi"));
+                Driver.getDriver().navigate().back();
+                count++;
             }
 
         }
     }
 
+    //Rooms sayfasi
+    public void ConcortHotelRoomsBilgiGiris() {
+        QAConcortPage qaConcortPage = new QAConcortPage();
+        ReusableMethods rm = new ReusableMethods();
+        Actions actions = new Actions(Driver.getDriver());
+        qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010.clear();
+        rm.waitFor(1);
+        actions.sendKeys(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010, "15/12/2021").perform();
+        qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010.clear();
+        actions.sendKeys(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010, "20/12/2021").perform();
+        Select select = new Select(qaConcortPage.selectRoomTypeDropdownUs010);
+        select.selectByVisibleText("Single");
+        Select select1 = new Select(qaConcortPage.selectAdultCountDropdownUs010);
+        select1.selectByVisibleText("1 Adult");
+        Select select2 = new Select(qaConcortPage.childrenDropdownUs010);
+        select2.selectByVisibleText("0 Children");
+        rm.scrollInToWiew(qaConcortPage.searchButtonUs010);
+        rm.waitFor(1);
+        actions.sendKeys(qaConcortPage.locationTextBoxUs010, "USA").perform();
+        rm.waitFor(1);
+        actions.click(qaConcortPage.searchButtonUs010).perform();
+        rm.waitFor(2);
+        actions.click(qaConcortPage.bookNowUs010).perform();
+    }
 
 
 
+    @FindBy(id = "checkin_date")
+    public WebElement advancedSearchBasligiCheckinDateBoxUs010;
+    @FindBy(id = "checkout_date")
+    public WebElement advancedSearchBasligiCheckoutDateBoxUs010;
+
+    @FindBy(id = "IDRoomType")
+    public WebElement selectRoomTypeDropdownUs010;
+
+    @FindBy(id = "AdultCount")
+    public WebElement selectAdultCountDropdownUs010;
+
+    @FindBy(id = "ChildrenCount")
+    public WebElement childrenDropdownUs010;
+
+    @FindBy(id = "location")
+    public WebElement locationTextBoxUs010;
+
+    @FindBy(xpath = "(//div[@class='form-group'])[7]")
+    public WebElement searchButtonUs010;
+
+    @FindBy(xpath = "(//a[@class='btn-custom'])[1]")
+    public WebElement bookNowUs010;
+
+    //***TodBruen Room Sayfasi
+    @FindBy(xpath = "(//a[text()='Log in'])[2]")
+    public WebElement TodBruenOdaSayfasindakiLogIn;
+
+    @FindBy(id = "checkin_date")
+    public WebElement TodBruenOdaSayfasindakiCheckinDateBox;
+
+    @FindBy(xpath = "(//tbody//tr//td)[16]")
+    public WebElement TodBruenOdaSayfasindakiCheckinDateTakvimi;
+
+    @FindBy(id = "checkout_date")
+    public WebElement TodBruenOdaSayfasindakiCheckoutDateBox;
+
+    @FindBy(xpath = "(//tbody//tr//td)[21]")
+    public WebElement TodBruenOdaSayfasindakiCheckoutDateTakvimi;
+
+    @FindBy(id = "AdultCount")
+    public WebElement TodBruenOdaSayfasindakiSelectAdultCountDropdown;
+
+    @FindBy(id = "ChildrenCount")
+    public WebElement TodBruenOdaSayfasindakiChildrenDropdown;
+
+    @FindBy(id = "NameSurname")
+    public WebElement TodBruenOdaSayfasindakiNameSurnameTextboxi;
+
+    @FindBy(id = "EmailAddress")
+    public WebElement TodBruenOdaSayfasindakiEmailTextboxi;
+
+    @FindBy(id = "PhoneNumber")
+    public WebElement TodBruenOdaSayfasindakiPhoneNumberTextboxi;
+
+    @FindBy(id = "NameOnCreditCard")
+    public WebElement TodBruenOdaSayfasindakiNameOnCreditCardTextboxi;
+
+    @FindBy(id = "CreditCardNumber")
+    public WebElement TodBruenOdaSayfasindakiCreditCardNumberTextboxi;
+
+    @FindBy(xpath = "//select[@name='CreditCardExpirationMonth']")
+    public WebElement TodBruenOdaSayfasindakiSelectExpirationMonthForCreditCardDropdownu;
+
+    @FindBy(xpath = "//select[@name='CreditCardExpirationYear']")
+    public WebElement TodBruenOdaSayfasindakiSelectExpirationYearForCreditCardDropdownu;
+
+    @FindBy(id = "CVV")
+    public WebElement TodBruenOdaSayfasindakiCVVTextboxi;
+
+    @FindBy(id = "Message")
+    public WebElement TodBruenOdaSayfasindakiMessageTextboxi;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement TodBruenOdaSayfasindakiBookThisRoomButonu;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement reservationWasMadeSuccessfullyUs010;
+
+    @FindBy(xpath = "//*[text()='This field is required.']")
+    public WebElement thisFieldIsRequiredYazisiUs010;
+
+    @FindBy(xpath = "//div[@class='col-md-12 room-single mt-4 mb-5 ftco-animate fadeInUp ftco-animated']")
+    public WebElement theBestHotelInTheRegionYazisiUs010;
 
 
 }
+

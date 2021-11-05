@@ -27,9 +27,9 @@ public class TestBaseRapor {
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
         extentReports.setSystemInfo("Enviroment", "QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Mehmet");
-        extentHtmlReporter.config().setDocumentTitle("window handle testi");
-        extentHtmlReporter.config().setReportName("window handle testi");
+        extentReports.setSystemInfo("Automation Engineer", "Team/5");
+        extentHtmlReporter.config().setDocumentTitle("Concort Hotel Rapor");
+        extentHtmlReporter.config().setReportName("Concort Hotel Rapor");
     }
 
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor

@@ -14,16 +14,16 @@ public class Tc_002 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
         Assert.assertTrue(qaConcortPage.advancedSearchBasligi.isDisplayed(), "Advanced Search basligi gorunmuyor!");
-        Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckinDateBox.isEnabled(), "Advanced Search basligi altindaki check in date box'i etkin degil!");
-        Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckoutDateBox.isEnabled(), "Advanced Search basligi altindaki check out date box'i etkin degil!");
-        Assert.assertTrue(qaConcortPage.selectRoomTypeDropdown.isDisplayed(), "Select Room Type dropdownu gorunmuyor!");
-        Assert.assertTrue(qaConcortPage.selectRoomTypeDropdown.isEnabled(), "Select Room Type dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.selectAdultCountDropdown.isDisplayed(), "Select Adult Count dropdownu gorunmuyor!");
-        Assert.assertTrue(qaConcortPage.selectAdultCountDropdown.isEnabled(), "Select Adult Count dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.childrenDropdown.isDisplayed(), "Children dropdownu gorunmuyor!");
-        Assert.assertTrue(qaConcortPage.childrenDropdown.isEnabled(), "Children dropdownu etkin degil!");
-        Assert.assertTrue(qaConcortPage.locationTextBox.isEnabled(), "Location textbox'i etkin degil!");
-        Assert.assertTrue(qaConcortPage.searchButton.isEnabled(), "Search butonu etkin degil!");
+        Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check in date box'i etkin degil!");
+        Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check out date box'i etkin degil!");
+        Assert.assertTrue(qaConcortPage.selectRoomTypeDropdownUs010.isDisplayed(), "Select Room Type dropdownu gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.selectRoomTypeDropdownUs010.isEnabled(), "Select Room Type dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.selectAdultCountDropdownUs010.isDisplayed(), "Select Adult Count dropdownu gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.selectAdultCountDropdownUs010.isEnabled(), "Select Adult Count dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.childrenDropdownUs010.isDisplayed(), "Children dropdownu gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.childrenDropdownUs010.isEnabled(), "Children dropdownu etkin degil!");
+        Assert.assertTrue(qaConcortPage.locationTextBoxUs010.isEnabled(), "Location textbox'i etkin degil!");
+        Assert.assertTrue(qaConcortPage.searchButtonUs010.isEnabled(), "Search butonu etkin degil!");
         Driver.closeDriver();
     }
 }

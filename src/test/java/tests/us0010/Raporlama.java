@@ -1,42 +1,43 @@
-package smokeTest;
+package tests.us0010;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class US0010NegativeTest {
-
-    //Bir bilgi eksik girildiginde rezervasyon yapilamadigini test edelim
-
+public class Raporlama extends TestBaseRapor {
     @Test
-    public void test () throws InterruptedException {
+    public void test1() {
 
+        extentTest = extentReports.createTest("Rezervasyon Testi", "Ilgili bilgiler girilince rezervasyon yapilabilabilmeli!");
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         qaConcortPage.ConcortHotelRoomsGiris();
+        extentTest.info("Concort Hotel/Rooms sayfasina gidildi");
+
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
-        Thread.sleep(2000);
+        extentTest.info("Oda kriterleri girildi!");
+
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
         qaConcortPage.loginButonu.click();
+        extentTest.info("Kullanici adi ve sifresiyle kisisel bilgiler sayfasina gidildi.");
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
+        ReusableMethods rm = new ReusableMethods();
         actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010).perform();
-        wait.until(ExpectedConditions.visibilityOf(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi));
+        rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
                 .click(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010).perform();
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi));
+        rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
@@ -46,8 +47,9 @@ public class US0010NegativeTest {
         select1.selectByVisibleText("0 Children");
 
         qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.clear();
+        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        rm.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
@@ -61,9 +63,11 @@ public class US0010NegativeTest {
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini rica ederim")
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
+        extentTest.info("Kisisel bilgiler girildi ve rezervasyon tamamlandi.");
 
-        Assert.assertTrue(qaConcortPage.thisFieldIsRequiredYazisiUs010.isDisplayed(),"This field is required yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed());
+        extentTest.pass("Reservation was made successfully yazisi goruldu.");
+
         Driver.closeDriver();
     }
-
 }
