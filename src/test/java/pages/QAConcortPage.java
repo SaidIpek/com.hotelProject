@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +38,17 @@ public class QAConcortPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-    public void ConcortHotelLogin() throws InterruptedException {
+    public void ConcortHotelLogin()  {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
-        Thread.sleep(2000);
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
-        Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         qaConcortPage.loginButonu.click();
     }
 //US0001 test locatorleri
@@ -197,9 +201,10 @@ public class QAConcortPage {
     //Rooms sayfasi
     public void ConcortHotelRoomsBilgiGiris() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
+        ReusableMethods rm = new ReusableMethods();
         Actions actions = new Actions(Driver.getDriver());
         qaConcortPage.advancedSearchBasligiCheckinDateBox.clear();
-        Thread.sleep(1000);
+        rm.waitFor(1);
         actions.sendKeys(qaConcortPage.advancedSearchBasligiCheckinDateBox, "15/12/2021").perform();
         qaConcortPage.advancedSearchBasligiCheckoutDateBox.clear();
         actions.sendKeys(qaConcortPage.advancedSearchBasligiCheckoutDateBox, "20/12/2021").perform();
@@ -210,11 +215,11 @@ public class QAConcortPage {
         Select select2 = new Select(qaConcortPage.childrenDropdown);
         select2.selectByVisibleText("0 Children");
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Thread.sleep(1000);
+        rm.waitFor(1);
         actions.sendKeys(qaConcortPage.locationTextBox, "USA").perform();
-        Thread.sleep(2000);
+        rm.waitFor(1);
         actions.click(qaConcortPage.searchButton).perform();
-        Thread.sleep(2000);
+        rm.waitFor(2);
         actions.click(qaConcortPage.bookNow).perform();
     }
 
