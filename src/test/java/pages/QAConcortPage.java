@@ -71,7 +71,7 @@ public class QAConcortPage {
         Assert.assertTrue(hotelManagementElementi.isDisplayed());
        hotelManagementElementi.click();
         hotelRoomsElementi.click();
-        Assert.assertTrue(listOfHotelRoomsElementi.isDisplayed(),"List Of Hotel Rooms element is not Displayed");
+        Assert.assertTrue(listOfHotelRoomsElementi.isDisplayed(),"List Of Hotel Rooms element is not Displayed.");
 
     }
 
