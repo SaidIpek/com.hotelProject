@@ -27,7 +27,7 @@ public class US0007PositiveTest {
         Select hotel = new Select(qaConcortPage.hotelRoomDataHotelDropDown);
         hotel.selectByIndex(1);
 
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).
                 sendKeys(ConfigReader.getProperty("HotelRoomCodeElement")).
                 sendKeys(Keys.TAB).
@@ -42,22 +42,22 @@ public class US0007PositiveTest {
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", qaConcortPage.hotelRoomSaveButton);
         Thread.sleep(2000);
 
-        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop,qaConcortPage.hotelRoomPriceBox).perform();
+        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop, qaConcortPage.hotelRoomPriceBox).perform();
         Select roomType = new Select(qaConcortPage.hotelRoomRoomType);
         roomType.selectByIndex(1);
         Thread.sleep(2000);
 
-        WebElement adult= Driver.getDriver().findElement(By.id("MaxAdultCount"));
+        WebElement adult = Driver.getDriver().findElement(By.id("MaxAdultCount"));
         adult.click();
         adult.clear();
-        adult.sendKeys("2",Keys.TAB,"9");
+        adult.sendKeys("2", Keys.TAB, "9");
         qaConcortPage.hotelRoomIsAvailable.click();
-        Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(),"Save button not found");
+        Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(), "Save button not found");
         actions.sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).
                 perform();
         Thread.sleep(2000);
-        Assert.assertEquals(qaConcortPage.hotelRoomSuccess.getText(),ConfigReader.getProperty("HotelRoomSuccess"));
+        Assert.assertEquals(qaConcortPage.hotelRoomSuccess.getText(), ConfigReader.getProperty("HotelRoomSuccess"));
 
         qaConcortPage.hotelRoomOkButton.click();
     }
