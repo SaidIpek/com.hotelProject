@@ -19,7 +19,7 @@ public class Tc_003 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
-        Assert.assertTrue(qaConcortPage.bookNow.isEnabled(), "Otel secenekleri tiklanabilir degil!");
+        Assert.assertTrue(qaConcortPage.bookNowUs010.isEnabled(), "Otel secenekleri tiklanabilir degil!");
         Driver.closeDriver();
     }
 }

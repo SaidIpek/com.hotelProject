@@ -27,7 +27,7 @@ public class US0010PositiveTest {
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
         qaConcortPage.loginButonu.click();
 
-        Assert.assertTrue(qaConcortPage.theBestHotelInTheRegionYazisi.isDisplayed(), "The best hotel in the region yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.theBestHotelInTheRegionYazisiUs010.isDisplayed(), "The best hotel in the region yazisi gorunmuyor!");
        Driver.closeDriver();
     }
 }

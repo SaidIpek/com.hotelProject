@@ -32,10 +32,10 @@ public class US0010NegativeTest {
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
-        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
+        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010).perform();
         wait.until(ExpectedConditions.visibilityOf(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi));
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
-                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
+                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010).perform();
         wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi));
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
@@ -62,7 +62,7 @@ public class US0010NegativeTest {
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
-        Assert.assertTrue(qaConcortPage.thisFieldIsRequiredYazisi.isDisplayed(),"This field is required yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.thisFieldIsRequiredYazisiUs010.isDisplayed(),"This field is required yazisi gorunmuyor!");
         Driver.closeDriver();
     }
 
