@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Tc_002 {
 
@@ -12,7 +13,9 @@ public class Tc_002 {
     @Test
     public void test() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
+        ReusableMethods rm = new ReusableMethods();
         qaConcortPage.ConcortHotelRoomsGiris();
+        rm.waitForVisibility(qaConcortPage.advancedSearchBasligi,5);
         Assert.assertTrue(qaConcortPage.advancedSearchBasligi.isDisplayed(), "Advanced Search basligi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check in date box'i etkin degil!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check out date box'i etkin degil!");

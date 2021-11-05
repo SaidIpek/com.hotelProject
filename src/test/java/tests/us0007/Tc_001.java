@@ -3,6 +3,7 @@ package tests.us0007;
 
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
+import utilities.Driver;
 
 
 public class Tc_001 {
@@ -19,6 +20,8 @@ public class Tc_001 {
 
                 System.out.println("====There is a problem with the login method====");
             qaConcortPage.hotelRooms();
+
+            Driver.closeDriver();
             }
 
 
