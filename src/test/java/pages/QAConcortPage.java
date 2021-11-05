@@ -4,16 +4,17 @@ import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import java.util.Random;
 
 public class QAConcortPage {
@@ -37,14 +38,17 @@ public class QAConcortPage {
     @FindBy(id = "btnSubmit")
     public WebElement loginButonu;
 
-    public void ConcortHotelLogin() throws InterruptedException {
+    public void ConcortHotelLogin()  {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
-        Thread.sleep(2000);
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
-        Thread.sleep(1000);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         qaConcortPage.loginButonu.click();
     }
 
@@ -157,6 +161,9 @@ public class QAConcortPage {
 
         }
     }
+
+
+
 
 
 

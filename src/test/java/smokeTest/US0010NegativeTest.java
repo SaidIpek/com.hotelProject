@@ -62,7 +62,7 @@ public class US0010NegativeTest {
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
-        Assert.assertTrue(qaConcortPage.thisFieldIsRequiredYazisi.isEnabled(),"This field is required yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.thisFieldIsRequiredYazisi.isDisplayed(),"This field is required yazisi gorunmuyor!");
         Driver.closeDriver();
     }
 
