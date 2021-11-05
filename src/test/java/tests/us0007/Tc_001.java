@@ -14,22 +14,14 @@ public class Tc_001 {
         @Test
         public void hotelRooms (){
             QAConcortPage qaConcortPage = new QAConcortPage();
-            try {
+
                 qaConcortPage.ConcortHotelLogin();
-            } catch (InterruptedException e) {
+
                 System.out.println("====There is a problem with the login method====");
-
-            }
             qaConcortPage.hotelRooms();
-
-
-
-
-
-
-
+            }
 
 
         }
 
-}
+
