@@ -51,23 +51,7 @@ public class QAConcortPage {
         }
         qaConcortPage.loginButonu.click();
     }
-//US0001 test locatorleri
 
-
-    //US0002  test locatorleri
-
-
-    //US0003 test locatorleri
-
-
-    //US0004-US0005 ortak alan locatorleri
-    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
-
-
-    //US0004 test locatorleri
-
-
-    //US0005 test locatorleri
 
 
     //US0006-US0007 ortak alan locatorleri
@@ -91,7 +75,7 @@ public class QAConcortPage {
 
     }
 
-    //US0006 test locatorleri
+
 
 
     //US0007 test locatorleri
@@ -178,14 +162,7 @@ public class QAConcortPage {
         }
     }
 
-    //US0008-US0009 ortak alan locatorleri
-    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
 
-
-    //US0008 test locatorleri
-
-
-    //US0009 test locatorleri
 
 
     //US0010 test locatorleri
