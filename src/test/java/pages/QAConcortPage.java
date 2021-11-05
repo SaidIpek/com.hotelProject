@@ -42,7 +42,9 @@ public class QAConcortPage {
 
     public void ConcortHotelLogin() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
+        ReusableMethods rm = new ReusableMethods();
         QAConcortPage qaConcortPage = new QAConcortPage();
+        rm.waitForClickablility(qaConcortPage.ilkLoginLinki,10);
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
@@ -361,7 +363,21 @@ public class QAConcortPage {
         }
     }
 
+    //US0010 test locatorleri
+    @FindBy(xpath = "(//a[@class='nav-link'])[2]")
+    public WebElement AnaSayfaRoomsSecenegi;
 
+    @FindBy(xpath = "//h1[text()='Rooms']")
+    public WebElement roomsSayfasiRoomsBasligi;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement roomReservationWasInsertedSuccesfullyYazisi;
+
+    public void ConcortHotelRoomsGiris() {
+        Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
+        QAConcortPage qaConcortPage = new QAConcortPage();
+        qaConcortPage.AnaSayfaRoomsSecenegi.click();
+    }
 
 
 

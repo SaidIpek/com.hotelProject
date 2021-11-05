@@ -64,7 +64,7 @@ public class Tc_003 {
 
 
 
-
+        Driver.closeDriver();
 
     }
 

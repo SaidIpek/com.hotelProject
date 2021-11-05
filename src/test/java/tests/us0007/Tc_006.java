@@ -98,7 +98,7 @@ public class Tc_006 {
 
 
 
-
+        Driver.closeDriver();
 
     }
 
