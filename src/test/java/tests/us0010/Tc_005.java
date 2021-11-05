@@ -33,10 +33,10 @@ public class Tc_005 {
 
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
-        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
+        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010).perform();
         rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
-                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
+                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010).perform();
         rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
@@ -64,7 +64,7 @@ public class Tc_005 {
                 .sendKeys(Keys.TAB)
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
-        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfully.isDisplayed(), "Reservation was made successfully yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed(), "Reservation was made successfully yazisi gorunmuyor!");
         Driver.closeDriver();
     }
 }

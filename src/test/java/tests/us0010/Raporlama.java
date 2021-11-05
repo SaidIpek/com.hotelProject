@@ -33,10 +33,10 @@ public class Raporlama extends TestBaseRapor {
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
         ReusableMethods rm = new ReusableMethods();
-        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBox).perform();
+        actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010).perform();
         rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
-                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBox).perform();
+                .click(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010).perform();
         rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
@@ -65,7 +65,7 @@ public class Raporlama extends TestBaseRapor {
                 .click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
         extentTest.info("Kisisel bilgiler girildi ve rezervasyon tamamlandi.");
 
-        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfully.isDisplayed());
+        Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed());
         extentTest.pass("Reservation was made successfully yazisi goruldu.");
 
         Driver.closeDriver();
