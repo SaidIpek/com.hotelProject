@@ -1,16 +1,23 @@
 package pages;
 
+import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.util.List;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class QAConcortPage {
 
@@ -49,223 +56,110 @@ public class QAConcortPage {
 
 
 
+    //US0006-US0007 ortak alan locatorleri
+    //Once ortak alan locatorlere bakilacak sonrasinda locate edilmediyse locate edilecek.
+    @FindBy(xpath = "//span[text()='Hotel Management']")
+    public WebElement hotelManagementElementi;
 
+    @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']")
+    public WebElement hotelRoomsElementi;
 
+    @FindBy(xpath = "//span[contains(text(), 'List')]")
+    public WebElement listOfHotelRoomsElementi;
 
 
 
+    public void hotelRooms(){
+        Assert.assertTrue(hotelManagementElementi.isDisplayed());
+       hotelManagementElementi.click();
+        hotelRoomsElementi.click();
+        Assert.assertTrue(listOfHotelRoomsElementi.isDisplayed(),"List Of Hotel Rooms element is not Displayed");
 
+    }
 
 
 
 
+    //US0007 test locatorleri
 
+    @FindBy(xpath = "(//div[@class='caption'])[1]")
+    public WebElement editHotelRoomElement;
 
+    @FindBy(xpath = "//a[@href='#tab_general']")
+    public WebElement generalDataElement;
 
+    @FindBy(xpath = "(//div[@class='caption'])[2]")
+    public WebElement hotelRoomDataElement;
 
+    @FindBy(xpath = "//a[contains(text(), ' Details')]")
+    public WebElement hotelDetailsButton;
 
+    @FindBy(xpath = "//select[@id='IDHotel']")
+    public WebElement hotelRoomDataHotelDropDown;
 
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement hotelRoomDateHotelCodeBox;
 
+    @FindBy(xpath = "//div[@id='products']/div/ul/li[2]")
+    public WebElement hotelRoomPriceDragDrop;
 
+    @FindBy(xpath = "//input[@id='Price']")
+    public WebElement hotelRoomPriceBox;
 
+    @FindBy(xpath = "//textarea[@dir='ltr']")
+    public WebElement hotelRoomDescriptionElement;
 
+    @FindBy(id = "IDGroupRoomType")
+    public WebElement hotelRoomRoomType;
 
+    @FindBy(id = "IsAvailable")
+    public WebElement hotelRoomIsAvailable;
 
+    @FindBy(xpath = "(//button[@class='btn green'])[1]")
+    public WebElement hotelRoomSaveButton;
 
+    @FindBy(xpath = "(//div[text()='HotelRoom was updated successfully'])")
+    public WebElement hotelRoomSuccess;
 
+    @FindBy(xpath = "//button[@data-bb-handler='ok']")
+    public WebElement hotelRoomOkButton;
 
+    @FindBy(id = "btnDelete")
+    public WebElement hotelRoomDeleteButton;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //US008 test locatorleri
-    //List Of Rezervations sayfasi
-
-    @FindBy(xpath = "(//span[@class='title'])[3]")
-    public WebElement hotelManagementSekmesi;
-
-    @FindBy(linkText = "Room reservations")
-    public WebElement roomReservationsSekmesi;
-
-    @FindBy(xpath = "//span[text()='List Of Reservations']")
-    public WebElement listOfReservationYazısı;
-
-    @FindBy(xpath = "//select[@name='datatable_ajax_length']")
-    public WebElement viewSelectDropDown;
-
-    @FindBy(xpath = "//div[@class='table-scrollable']")
-    public List<WebElement> lisOfReservationListesi;
-
-    @FindBy(xpath = "//*[text()='Found total 226 records']")
-    public WebElement foundTotalListeSayısı;
-
-    @FindBy(xpath = "//span[text()='Add Room Reservation ']")
-    public WebElement addRoomReservation;
-
-    @FindBy(xpath = "//a[text()='List Of Hotelroomreservatıons']")
-    public WebElement listOfHotelroomreservartions;
-
-    @FindBy(id = "IDUser")
-    public WebElement idUserDropdownu;
-
-    @FindBy(xpath = "//select[@id='IDHotelRoom']")
-    public WebElement idHotelRoomDropdownu;
-
-    @FindBy(id = "Price")
-    public WebElement pricetextBoxi;
-
-    @FindBy(id = "DateStart")
-    public WebElement dateStarttextBoxi;
-
-    @FindBy(xpath = "(//button[@class='btn default'])[2]")
-    public WebElement dateStartTakvimIkonu;
-
-    @FindBy(xpath = "(//td[@class='day'])[2]")
-    public WebElement dateStartTakvimi;
-
-    @FindBy(xpath = "(//button[@class='btn default'])[3]")
-    public WebElement dateEndTakvimIkonu;
-
-    @FindBy(xpath = "(//td[@class='day'])[3]")
-    public WebElement dateEndTakvimi;
-
-    @FindBy(id = "DateEnd")
-    public WebElement dateEndTextBoxi;
-
-    @FindBy(id = "AdultAmount")
-    public WebElement adultAmountTextBoxi;
-
-    @FindBy(id = "ChildrenAmount")
-    public WebElement childrenAmountTextBoxi;
-
-    @FindBy(id = "ContactNameSurname")
-    public WebElement contactNameSurnameTextBoxi;
-
-    @FindBy(id = "ContactPhone")
-    public WebElement contactPhoneTextBoxi;
-
-    @FindBy(id = "ContactEmail")
-    public WebElement contactEmailTextBoxi;
-
-    @FindBy(id = "Notes")
-    public WebElement notesTextBoxi;
-
-    @FindBy(xpath = "(//div[@class='form-group'])[12]")
-    public WebElement approvedCheckbox;
-
-    @FindBy(id = "Approved")
-    public WebElement approvedCheckboxTiklamakIcin;
-
-    @FindBy(id = "uniform-IsPaid")
-    public WebElement isPaidCheckbox;
-
-    @FindBy(id = "btnSubmit")
-    public WebElement createHotelroomreservatıonSaveButonu;
+    @FindBy(xpath = "//button[text()='OK']")
+    public WebElement hotelRoomDeleteQuestion;
 
     @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement roomReservationWasInsertedSuccesfullyYazisi;
+    public WebElement hotelRoomDeleteMessage;
+
+    @FindBy(className = "bootbox-body")
+    public WebElement hotelRoomFailSaveMessage;
 
 
-    //US0010 test locatorleri
-    @FindBy(xpath = "(//a[@class='nav-link'])[2]")
-    public WebElement AnaSayfaRoomsSecenegi;
 
-    public void ConcortHotelRoomsGiris() {
-        Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
+    public void details(){
         QAConcortPage qaConcortPage = new QAConcortPage();
-        qaConcortPage.AnaSayfaRoomsSecenegi.click();
+        ArrayList<Integer>random=new ArrayList<>();
+        int count=0;
+        random.add(0);
+        while (count<=3){
+            Random rnd = new Random();
+            int detail = rnd.nextInt(10) + 1;
+
+            if (!random.contains(detail)){
+                random.add(detail);
+                Assert.assertTrue(Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isDisplayed(),"Details Button is not Displayed");
+                Assert.assertTrue( Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isEnabled());
+                Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
+                Assert.assertEquals(qaConcortPage.editHotelRoomElement.getText(), ConfigReader.getProperty("EditHotelRoomElementi"),"Edit Hotelroom element is not Displayed");
+                Assert.assertTrue(qaConcortPage.generalDataElement.isDisplayed());
+                Assert.assertEquals(qaConcortPage.hotelRoomDataElement.getText(),ConfigReader.getProperty("HotelRoomDataElementi"));
+                Driver.getDriver().navigate().back();
+                count++;
+            }
+
+        }
     }
 
     //Rooms sayfasi
@@ -293,15 +187,10 @@ public class QAConcortPage {
         actions.click(qaConcortPage.bookNowUs010).perform();
     }
 
-    @FindBy(xpath = "//h3[@class='heading mb-4']")
-    public WebElement advancedSearchBasligi;
 
-    @FindBy(xpath = "//h1[text()='Rooms']")
-    public WebElement roomsSayfasiRoomsBasligi;
 
     @FindBy(id = "checkin_date")
     public WebElement advancedSearchBasligiCheckinDateBoxUs010;
-
     @FindBy(id = "checkout_date")
     public WebElement advancedSearchBasligiCheckoutDateBoxUs010;
 
@@ -384,4 +273,6 @@ public class QAConcortPage {
     @FindBy(xpath = "//div[@class='col-md-12 room-single mt-4 mb-5 ftco-animate fadeInUp ftco-animated']")
     public WebElement theBestHotelInTheRegionYazisiUs010;
 
+
 }
+

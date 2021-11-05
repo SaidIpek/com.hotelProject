@@ -1,6 +1,5 @@
 package tests.us0007;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -9,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -16,15 +16,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Tc_005 {
-
+public class Tc_006 {
     @Test
     public void test() throws InterruptedException {
-
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelRooms();
         qaConcortPage.details();
+
 
         ArrayList<Integer> random=new ArrayList<>();
         int count=0;
@@ -74,17 +73,20 @@ public class Tc_005 {
 
 
                 qaConcortPage.hotelRoomIsAvailable.click();
-                Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(),"Save button not found");
-                actions.sendKeys(Keys.TAB).
-                        sendKeys(Keys.ENTER).
+
+                actions.sendKeys(Keys.PAGE_DOWN).
+                        sendKeys(Keys.PAGE_DOWN).
                         perform();
-
-
                 Thread.sleep(2000);
-                Assert.assertEquals(qaConcortPage.hotelRoomSuccess.getText(),ConfigReader.getProperty("HotelRoomSuccess"));
-
+                Assert.assertTrue(qaConcortPage.hotelRoomDeleteButton.isDisplayed());
+                qaConcortPage.hotelRoomDeleteButton.click();
+                Thread.sleep(2000);
+                qaConcortPage.hotelRoomDeleteQuestion.click();
+                SoftAssert softAssert=new SoftAssert();
+                Thread.sleep(1000);
+                softAssert.assertEquals(qaConcortPage.hotelRoomDeleteMessage.getText(),ConfigReader.getProperty("HotelRoomSuccessDelete"));
                 qaConcortPage.hotelRoomOkButton.click();
-
+                softAssert.assertAll();
 
                 Driver.getDriver().navigate().back();
                 count++;
@@ -99,4 +101,5 @@ public class Tc_005 {
 
 
     }
+
 }
