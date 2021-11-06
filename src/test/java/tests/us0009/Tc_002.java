@@ -7,10 +7,10 @@ import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class Tc_002{
+public class Tc_002 {
 
     @Test
-    public void test(){
+    public void test() {
 
         QAConcortPage qaConcortPage = new QAConcortPage();
 

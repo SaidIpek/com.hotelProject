@@ -15,7 +15,7 @@ public class Tc_005 {
 
     @Test
     public void test() throws InterruptedException {
-        QAConcortPage qaConcortPage=new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
 
         Actions actions = new Actions(Driver.getDriver());
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
@@ -57,7 +57,7 @@ public class Tc_005 {
         select.selectByIndex(1);
 
         actions.doubleClick(qaConcortPage.pricetextBoxi).perform();
-        qaConcortPage.pricetextBoxi.sendKeys(Keys.DELETE+"5000");
+        qaConcortPage.pricetextBoxi.sendKeys(Keys.DELETE + "5000");
 
         qaConcortPage.dateStartTakvimIkonu.click();
         qaConcortPage.dateStartTakvimi.click();
@@ -66,25 +66,25 @@ public class Tc_005 {
         qaConcortPage.dateEndTakvimi.click();
 
 
-        qaConcortPage.adultAmountTextBoxi.sendKeys(Keys.BACK_SPACE+"2");
+        qaConcortPage.adultAmountTextBoxi.sendKeys(Keys.BACK_SPACE + "2");
 
-        qaConcortPage.childrenAmountTextBoxi.sendKeys(Keys.BACK_SPACE+"3");
+        qaConcortPage.childrenAmountTextBoxi.sendKeys(Keys.BACK_SPACE + "3");
 
         actions.doubleClick(qaConcortPage.contactNameSurnameTextBoxi).perform();
-        qaConcortPage.contactNameSurnameTextBoxi.sendKeys(Keys.DELETE+"mazhar fuat");
+        qaConcortPage.contactNameSurnameTextBoxi.sendKeys(Keys.DELETE + "mazhar fuat");
 
         actions.click(qaConcortPage.contactPhoneTextBoxi);
         actions.doubleClick(qaConcortPage.contactPhoneTextBoxi).perform();
-        qaConcortPage.contactPhoneTextBoxi.sendKeys(Keys.DELETE+"(555) 123 45 67");
+        qaConcortPage.contactPhoneTextBoxi.sendKeys(Keys.DELETE + "(555) 123 45 67");
 
         actions.click(qaConcortPage.contactEmailTextBoxi);
         actions.doubleClick(qaConcortPage.contactEmailTextBoxi).perform();
-        qaConcortPage.contactEmailTextBoxi.sendKeys(Keys.DELETE+"mazharfuat@gmail.com");
+        qaConcortPage.contactEmailTextBoxi.sendKeys(Keys.DELETE + "mazharfuat@gmail.com");
         qaConcortPage.contactEmailTextBoxi.sendKeys(Keys.PAGE_DOWN);
         Thread.sleep(2000);
 
         actions.doubleClick(qaConcortPage.notesTextBoxi).perform();
-        qaConcortPage.notesTextBoxi.sendKeys(Keys.DELETE+"mehmet hocaya selam olsun. :)");
+        qaConcortPage.notesTextBoxi.sendKeys(Keys.DELETE + "mehmet hocaya selam olsun. :)");
 
         qaConcortPage.approvedCheckboxTiklamakIcin.click();
         qaConcortPage.isPaidCheckbox.click();
@@ -97,9 +97,6 @@ public class Tc_005 {
 
 
         Driver.closeDriver();
-
-
-
 
 
     }
