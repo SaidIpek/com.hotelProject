@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
+import java.util.List;
+
 public class QAConcortPage {
 
     WebDriver driver;
@@ -827,10 +829,4 @@ public class QAConcortPage {
 
 
 }
-
-
-
-
-
-
 
