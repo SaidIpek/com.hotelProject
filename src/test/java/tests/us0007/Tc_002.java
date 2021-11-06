@@ -2,6 +2,7 @@ package tests.us0007;
 
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
+import utilities.Driver;
 
 
 public class Tc_002 {
@@ -15,6 +16,8 @@ public class Tc_002 {
     qaConcortPage.hotelRooms();
 
      qaConcortPage.details();
+
+    Driver.closeDriver();
 }
 
 }

@@ -12,20 +12,24 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Tc_005 {
+public class Tc_005 extends TestBaseRapor {
 
     @Test
-    public void test() throws InterruptedException {
-
+    public void test() throws InterruptedException, IOException {
+        extentTest=extentReports.createTest("Update Hotel Room Test");
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelRooms();
         qaConcortPage.details();
-
+        extentTest.info("Tested to be on the HotelRoom page");
         ArrayList<Integer> random=new ArrayList<>();
         int count=0;
         random.add(0);
@@ -37,11 +41,11 @@ public class Tc_005 {
                 random.add(detail);
 
                 Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
-
+                extentTest.info("Details button tested");
                 Assert.assertTrue(qaConcortPage.hotelRoomDataHotelDropDown.isDisplayed());
                 Select hotel=new Select(qaConcortPage.hotelRoomDataHotelDropDown);
                 hotel.selectByIndex(6);
-
+                extentTest.info("Hotel DropDown tested");
 
 
                 Actions actions=new Actions(Driver.getDriver());
@@ -52,7 +56,7 @@ public class Tc_005 {
                         sendKeys(Keys.TAB).
                         sendKeys(ConfigReader.getProperty("HotelRoomLocationElement")).
                         perform();
-
+                extentTest.info("#Code - Name - Location# Elements tested");
                 Thread.sleep(2000);
                 JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
                 jsexecutor.executeScript("arguments[0].scrollIntoView(true);", qaConcortPage.hotelRoomSaveButton);
@@ -71,6 +75,7 @@ public class Tc_005 {
                 adult.click();
                 adult.clear();
                 adult.sendKeys("2",Keys.TAB,"9");
+                extentTest.info("#Description - Price - Room type - Max Adult Count - Max Children Count - IsAvailable# Elements tested");
 
 
                 qaConcortPage.hotelRoomIsAvailable.click();
@@ -78,16 +83,21 @@ public class Tc_005 {
                 actions.sendKeys(Keys.TAB).
                         sendKeys(Keys.ENTER).
                         perform();
-
+                extentTest.info("#Save Button - Is Available box# Elements tested");
 
                 Thread.sleep(2000);
                 Assert.assertEquals(qaConcortPage.hotelRoomSuccess.getText(),ConfigReader.getProperty("HotelRoomSuccess"));
+                extentTest.info("#Hotel Room Success# text tested");
+                if (count==3){
+                    ReusableMethods.getScreenshot("HotelRoom Updated");
+                }
 
                 qaConcortPage.hotelRoomOkButton.click();
 
-
+                extentTest.pass(count+1+". Edit HotelRoom page Pass");
                 Driver.getDriver().navigate().back();
                 count++;
+
 
 
             }
@@ -96,7 +106,7 @@ public class Tc_005 {
 
 
 
-
+        Driver.closeDriver();
 
     }
 }

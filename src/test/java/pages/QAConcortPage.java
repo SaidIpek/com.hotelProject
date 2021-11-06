@@ -10,8 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import utilities.ConfigReader;
+
+
 import utilities.Driver;
 import utilities.ReusableMethods;
+
 
 import java.util.List;
 
@@ -187,10 +190,13 @@ public class QAConcortPage {
         actions.click(qaConcortPage.bookNowUs010).perform();
     }
 
-
+  
+    @FindBy(xpath = "//h3[@class='heading mb-4']")
+    public WebElement advancedSearchBasligi;
 
     @FindBy(id = "checkin_date")
     public WebElement advancedSearchBasligiCheckinDateBoxUs010;
+  
     @FindBy(id = "checkout_date")
     public WebElement advancedSearchBasligiCheckoutDateBoxUs010;
 
@@ -272,6 +278,114 @@ public class QAConcortPage {
 
     @FindBy(xpath = "//div[@class='col-md-12 room-single mt-4 mb-5 ftco-animate fadeInUp ftco-animated']")
     public WebElement theBestHotelInTheRegionYazisiUs010;
+
+
+    //US008 test locatorleri
+    //List Of Rezervations sayfasi
+
+    @FindBy(xpath = "(//span[@class='title'])[3]")
+    public WebElement hotelManagementSekmesi;
+
+    @FindBy(linkText = "Room reservations")
+    public WebElement roomReservationsSekmesi;
+
+    @FindBy(xpath = "//span[text()='List Of Reservations']")
+    public WebElement listOfReservationYazısı;
+
+    @FindBy(xpath = "//select[@name='datatable_ajax_length']")
+    public WebElement viewSelectDropDown;
+
+    @FindBy(xpath = "//div[@class='table-scrollable']")
+    public List<WebElement> lisOfReservationListesi;
+
+    @FindBy(xpath = "//*[text()='Found total 226 records']")
+    public WebElement foundTotalListeSayısı;
+
+    @FindBy(xpath = "//span[text()='Add Room Reservation ']")
+    public WebElement addRoomReservation;
+
+    @FindBy(xpath = "//a[text()='List Of Hotelroomreservatıons']")
+    public WebElement listOfHotelroomreservartions;
+
+    @FindBy(id = "IDUser")
+    public WebElement idUserDropdownu;
+
+    @FindBy(xpath = "//select[@id='IDHotelRoom']")
+    public WebElement idHotelRoomDropdownu;
+
+    @FindBy(id = "Price")
+    public WebElement pricetextBoxi;
+
+    @FindBy(id = "DateStart")
+    public WebElement dateStarttextBoxi;
+
+    @FindBy(xpath = "(//button[@class='btn default'])[2]")
+    public WebElement dateStartTakvimIkonu;
+
+    @FindBy(xpath = "(//td[@class='day'])[2]")
+    public WebElement dateStartTakvimi;
+
+    @FindBy(xpath = "(//button[@class='btn default'])[3]")
+    public WebElement dateEndTakvimIkonu;
+
+    @FindBy(xpath = "(//td[@class='day'])[3]")
+    public WebElement dateEndTakvimi;
+
+    @FindBy(id = "DateEnd")
+    public WebElement dateEndTextBoxi;
+
+    @FindBy(id = "AdultAmount")
+    public WebElement adultAmountTextBoxi;
+
+    @FindBy(id = "ChildrenAmount")
+    public WebElement childrenAmountTextBoxi;
+
+    @FindBy(id = "ContactNameSurname")
+    public WebElement contactNameSurnameTextBoxi;
+
+    @FindBy(id = "ContactPhone")
+    public WebElement contactPhoneTextBoxi;
+
+    @FindBy(id = "ContactEmail")
+    public WebElement contactEmailTextBoxi;
+
+    @FindBy(id = "Notes")
+    public WebElement notesTextBoxi;
+
+    @FindBy(xpath = "(//div[@class='form-group'])[12]")
+    public WebElement approvedCheckbox;
+
+    @FindBy(id = "Approved")
+    public WebElement approvedCheckboxTiklamakIcin;
+
+    @FindBy(id = "uniform-IsPaid")
+    public WebElement isPaidCheckbox;
+
+    @FindBy(id = "btnSubmit")
+    public WebElement createHotelroomreservatıonSaveButonu;
+
+    @FindBy(xpath = "//h1[text()='Rooms']")
+    public WebElement roomsSayfasiRoomsBasligi;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement roomReservationWasInsertedSuccesfullyYazisi;
+
+    @FindBy(xpath = "(//a[@class='nav-link'])[2]")
+    public WebElement AnaSayfaRoomsSecenegi;
+
+    public void ConcortHotelRoomsGiris() {
+        Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
+        QAConcortPage qaConcortPage = new QAConcortPage();
+        qaConcortPage.AnaSayfaRoomsSecenegi.click();
+    }
+
+
+
+
+
+
+
+
 
 
 }

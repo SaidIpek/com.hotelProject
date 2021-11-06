@@ -46,7 +46,7 @@ public class ReusableMethods {
     }
 
     //======scroll to the exact element====//
-    public void scrollInToWiew(WebElement element) {
+    public static void scrollInToWiew(WebElement element) {
         JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }

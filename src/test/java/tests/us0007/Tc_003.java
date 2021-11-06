@@ -63,7 +63,7 @@ public class Tc_003 {
         qaConcortPage.hotelRoomIsAvailable.click();
 
 
-
+        Driver.closeDriver();
 
 
     }

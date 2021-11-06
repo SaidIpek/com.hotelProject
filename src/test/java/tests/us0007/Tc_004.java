@@ -64,6 +64,6 @@ Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(),"Save button n
         actions.sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).
                 perform();
-
+        Driver.closeDriver();
     }
 }

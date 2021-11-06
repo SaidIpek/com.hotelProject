@@ -12,18 +12,23 @@ import org.testng.asserts.SoftAssert;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Tc_006 {
+public class Tc_006 extends TestBaseRapor {
     @Test
-    public void test() throws InterruptedException {
+    public void test() throws InterruptedException, IOException {
+        extentTest=extentReports.createTest("Delete Hotel Room Test");
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelRooms();
         qaConcortPage.details();
-
+        extentTest.info("Tested to be on the HotelRoom page");
 
         ArrayList<Integer> random=new ArrayList<>();
         int count=0;
@@ -36,11 +41,11 @@ public class Tc_006 {
                 random.add(detail);
 
                 Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
-
+                extentTest.info("Details button tested");
                 Assert.assertTrue(qaConcortPage.hotelRoomDataHotelDropDown.isDisplayed());
                 Select hotel=new Select(qaConcortPage.hotelRoomDataHotelDropDown);
                 hotel.selectByIndex(6);
-
+                extentTest.info("Hotel DropDown tested");
 
 
                 Actions actions=new Actions(Driver.getDriver());
@@ -51,11 +56,10 @@ public class Tc_006 {
                         sendKeys(Keys.TAB).
                         sendKeys(ConfigReader.getProperty("HotelRoomLocationElement")).
                         perform();
-
+                extentTest.info("#Code - Name - Location# Elements tested");
                 Thread.sleep(2000);
-                JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
-                jsexecutor.executeScript("arguments[0].scrollIntoView(true);", qaConcortPage.hotelRoomSaveButton);
 
+                ReusableMethods.scrollInToWiew(qaConcortPage.hotelRoomSaveButton);
                 WebElement description=qaConcortPage.hotelRoomDescriptionElement;
                 description.clear();
                 description.sendKeys(ConfigReader.getProperty("HotelRoomDescription"));
@@ -70,24 +74,24 @@ public class Tc_006 {
                 adult.click();
                 adult.clear();
                 adult.sendKeys("2",Keys.TAB,"9");
-
+                extentTest.info("#Description - Price - Room type - Max Adult Count - Max Children Count - IsAvailable# Elements tested");
 
                 qaConcortPage.hotelRoomIsAvailable.click();
+                ReusableMethods.scrollInToWiew(qaConcortPage.hotelRoomDeleteButton);
 
-                actions.sendKeys(Keys.PAGE_DOWN).
-                        sendKeys(Keys.PAGE_DOWN).
-                        perform();
                 Thread.sleep(2000);
                 Assert.assertTrue(qaConcortPage.hotelRoomDeleteButton.isDisplayed());
                 qaConcortPage.hotelRoomDeleteButton.click();
+                extentTest.info("#Delete Button# Elements tested");
                 Thread.sleep(2000);
                 qaConcortPage.hotelRoomDeleteQuestion.click();
                 SoftAssert softAssert=new SoftAssert();
                 Thread.sleep(1000);
                 softAssert.assertEquals(qaConcortPage.hotelRoomDeleteMessage.getText(),ConfigReader.getProperty("HotelRoomSuccessDelete"));
+               ReusableMethods.getScreenshot("Deletion Failed");
                 qaConcortPage.hotelRoomOkButton.click();
+                extentTest.fail("information not deleted");
                 softAssert.assertAll();
-
                 Driver.getDriver().navigate().back();
                 count++;
 
@@ -98,7 +102,7 @@ public class Tc_006 {
 
 
 
-
+        Driver.closeDriver();
 
     }
 
