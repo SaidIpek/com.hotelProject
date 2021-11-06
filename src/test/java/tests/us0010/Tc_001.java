@@ -17,7 +17,7 @@ public class Tc_001 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         Assert.assertTrue(qaConcortPage.AnaSayfaRoomsSecenegi.isDisplayed(), "Ana Sayfa navbardaki Rooms secenegi gorunmuyor!");
         qaConcortPage.AnaSayfaRoomsSecenegi.click();
-        Assert.assertTrue(qaConcortPage.roomsSayfasiRoomsBasligi.getText().equals("Rooms"), "Rooms sayfasindaki rooms basligi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.roomsSayfasiRoomsBasligi.isDisplayed(), "Rooms sayfasindaki rooms basligi gorunmuyor!");
 
         Driver.closeDriver();
     }
