@@ -1,5 +1,6 @@
 package tests.us0004;
 
-public class Tc_003 {
+
+public class TC_003 {
 
 }
