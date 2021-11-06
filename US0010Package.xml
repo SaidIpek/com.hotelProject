@@ -2,7 +2,7 @@
 <suite name="US007'in package testi">
  <test name="US007">
      <packages>
-         <package name="tests.us0007"></package>
+         <package name=".*"></package>
      </packages>
  </test>
 </suite>
