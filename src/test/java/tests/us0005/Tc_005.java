@@ -3,9 +3,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.util.Set;
+
 public class Tc_005 {
     //TC-0005- "General Data" kisminda "Delete Hotel" yazisinin gorulebilir ve "Delete"  butonu tiklanilabilir olmali
     //ardindan"Hotel successfully deleted" yazisi gorunmeli ve "ok" butonuna tiklanilabilmeli
@@ -17,24 +22,30 @@ public class Tc_005 {
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
-        Thread.sleep(2000);
+
         qaConcortPage.ConcortHotelLogin();
-//        Actions actions = new Actions(Driver.getDriver());
-//        Thread.sleep(5000);
-//        qaConcortPage.hotelManagementLinki.click();
-//        Thread.sleep(5000);
-//        qaConcortPage.hotelListLink.click();
-//        Assert.assertTrue( qaConcortPage.ListOfHotelYAziElementi.isDisplayed(),"list hotel yazisi gorunmuyor");
-//        actions.sendKeys(qaConcortPage.detailsListButonu)
-//                .sendKeys(qaConcortPage.GeneralDataListLinki)
-//                .sendKeys(qaConcortPage.deleteListIkonu)
-//                .sendKeys(qaConcortPage.deleteListButonu)
-//                .perform();
-//        Assert.assertTrue(qaConcortPage.deleteListButonu.isDisplayed());
-//        qaConcortPage.deleteListButonu.click();
-        // Assert.assertTrue();
-        //Actions actions1 = new Actions(Driver.getDriver());
-        // actions.contextClick().perform();
+        qaConcortPage.hotelManagementLinki.click();
+        qaConcortPage.hotelListLink.click();
+        qaConcortPage.detailsButonu.click();
+
+        String ilkHandle = Driver.getDriver().getWindowHandle();
+        Set<String> set = Driver.getDriver().getWindowHandles();
+        String ikinciHandle="";
+        for (String w:set
+        ) {
+            if (!w.equals(ilkHandle)) {
+                ikinciHandle=w;
+            }
+        }
+
+        Driver.getDriver().switchTo().window(ikinciHandle);
+        ReusableMethods.scrollInToWiew(qaConcortPage.deleteListButonu);
+        Assert.assertTrue(qaConcortPage.deleteListButonu.isDisplayed());
+        qaConcortPage.deleteListButonu.click();
+        ReusableMethods.waitForVisibility(qaConcortPage.wouldULikeToContinue,5);
+       Assert.assertTrue(qaConcortPage.wouldULikeToContinue.isDisplayed());
+        qaConcortPage.alertOk2.click();
+
         Driver.closeDriver();
     }
 }

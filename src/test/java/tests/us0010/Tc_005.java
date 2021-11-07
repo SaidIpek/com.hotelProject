@@ -20,10 +20,11 @@ public class Tc_005 {
     //successfully Your Reservation Link is : here" yazisi gorunur olmali.
 
     @Test
-    public void test()  {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiLogIn, 10);
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
@@ -49,9 +50,11 @@ public class Tc_005 {
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
         ReusableMethods.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
-        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com")
-                .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
-                .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
+        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com").perform();
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, 15);
+        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber()).perform();
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, 15);
+        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCreditCardNumberTextboxi, "5555555555555555").perform();
         Select select2 = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectExpirationYearForCreditCardDropdownu);
         select2.selectByVisibleText("2023");
@@ -61,8 +64,8 @@ public class Tc_005 {
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCVVTextboxi, "123")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini rica ederim")
                 .sendKeys(Keys.TAB).perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu,10);
-                actions.click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu, 10);
+        actions.click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
         Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed(), "Reservation was made successfully yazisi gorunmuyor!");
         Driver.closeDriver();
