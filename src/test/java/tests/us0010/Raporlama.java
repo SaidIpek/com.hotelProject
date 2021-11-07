@@ -12,17 +12,21 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
+import java.io.IOException;
+
 public class Raporlama extends TestBaseRapor {
     @Test
-    public void test1() {
+    public void test1() throws IOException {
 
         extentTest = extentReports.createTest("Rezervasyon Testi", "Ilgili bilgiler girilince rezervasyon yapilabilabilmeli!");
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
         extentTest.info("Concort Hotel/Rooms sayfasina gidildi");
 
+
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
         extentTest.info("Oda kriterleri girildi!");
+
 
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
@@ -30,14 +34,15 @@ public class Raporlama extends TestBaseRapor {
         qaConcortPage.loginButonu.click();
         extentTest.info("Kullanici adi ve sifresiyle kisisel bilgiler sayfasina gidildi.");
 
+
         Faker faker = new Faker();
         Actions actions = new Actions(Driver.getDriver());
-        ReusableMethods rm = new ReusableMethods();
+
         actions.click(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010).perform();
-        rm.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
+        ReusableMethods.waitForVisibility(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi, 5);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateTakvimi)
                 .click(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010).perform();
-        rm.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
@@ -47,9 +52,9 @@ public class Raporlama extends TestBaseRapor {
         select1.selectByVisibleText("0 Children");
 
         qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi.clear();
-        actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
+        //actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameSurnameTextboxi, faker.name().fullName()).perform();
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
-        rm.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
+        ReusableMethods.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
@@ -67,6 +72,7 @@ public class Raporlama extends TestBaseRapor {
 
         Assert.assertTrue(qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed());
         extentTest.pass("Reservation was made successfully yazisi goruldu.");
+       ReusableMethods.getScreenshot("Reservation was made successfully yazisi goruldu.");
 
         Driver.closeDriver();
     }

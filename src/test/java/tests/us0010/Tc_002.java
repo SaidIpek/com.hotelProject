@@ -11,11 +11,10 @@ public class Tc_002 {
     //2) Advanced Search text boxlari, dropdownlari ve search butonu etkin olmali.
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        ReusableMethods rm = new ReusableMethods();
         qaConcortPage.ConcortHotelRoomsGiris();
-        rm.waitForVisibility(qaConcortPage.advancedSearchBasligi,5);
+        ReusableMethods.waitForVisibility(qaConcortPage.advancedSearchBasligi,5);
         Assert.assertTrue(qaConcortPage.advancedSearchBasligi.isDisplayed(), "Advanced Search basligi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check in date box'i etkin degil!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check out date box'i etkin degil!");
