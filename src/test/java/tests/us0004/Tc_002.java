@@ -12,7 +12,7 @@ public class Tc_002 {
 
         // 1-Acilan sayfada sol menuden "System Management" menusunun altindaki
         // "Hotel Management" sekmesine  tiklar
-        QAConcortPage qaConcortPage= new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
 
         qaConcortPage.ConcortHotelLogin();
         Thread.sleep(2000);
