@@ -18,7 +18,7 @@ public class Tc_004 {
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
         qaConcortPage.loginButonu.isDisplayed();
-        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu, 10);
         qaConcortPage.loginButonu.click();
 
         Driver.closeDriver();
