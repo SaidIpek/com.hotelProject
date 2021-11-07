@@ -53,14 +53,14 @@ public class Tc_005 {
         Assert.assertTrue(qaConcortPage.dateStarttextBoxi.isDisplayed(), "Date Start textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.dateStarttextBoxi.isEnabled(), "Date Start textboxi etkin degil!");
         actions.click(qaConcortPage.dateStartTakvimIkonu).perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.dateStartTakvimi,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.dateStartTakvimi, 10);
         actions.click(qaConcortPage.dateStartTakvimi).perform();
 
-       ReusableMethods.waitForClickablility(qaConcortPage.dateEndTextBoxi,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.dateEndTextBoxi, 10);
         Assert.assertTrue(qaConcortPage.dateEndTextBoxi.isDisplayed(), "Date End textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.dateEndTextBoxi.isEnabled(), "Date End textboxi etkin degil!");
         actions.click(qaConcortPage.dateEndTakvimIkonu).perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.dateEndTakvimi,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.dateEndTakvimi, 10);
         actions.click(qaConcortPage.dateEndTakvimi).perform();
 
         Assert.assertTrue(qaConcortPage.adultAmountTextBoxi.isDisplayed(), "Adult Amount textboxi gorunmuyor!");
@@ -93,12 +93,12 @@ public class Tc_005 {
         Assert.assertTrue(qaConcortPage.approvedCheckbox.isEnabled(), "Approved checkboxi etkin degil!");
         actions.click(qaConcortPage.approvedCheckboxTiklamakIcin).perform();
 
-        ReusableMethods.waitForClickablility(qaConcortPage.isPaidCheckbox,5);
+        ReusableMethods.waitForClickablility(qaConcortPage.isPaidCheckbox, 5);
         Assert.assertTrue(qaConcortPage.isPaidCheckbox.isDisplayed(), "Ispaid checkboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.isPaidCheckbox.isEnabled(), "Ispaid checkboxi etkin degil!");
         actions.click(qaConcortPage.isPaidCheckbox).perform();
 
-       Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 

@@ -14,15 +14,15 @@ public class Tc_003 {
      */
 
     @Test
-    public void test () {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelManagementSekmesi.click();
         qaConcortPage.roomReservationsSekmesi.click();
-        Assert.assertTrue(qaConcortPage.addRoomReservation.isDisplayed(),"Add Room Reservation yazisi gorunmuyor!");
-        Assert.assertTrue(qaConcortPage.addRoomReservation.isEnabled(),"Add Room Reservation yazisi etkin degil!");
+        Assert.assertTrue(qaConcortPage.addRoomReservation.isDisplayed(), "Add Room Reservation yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.addRoomReservation.isEnabled(), "Add Room Reservation yazisi etkin degil!");
         qaConcortPage.addRoomReservation.click();
-        Assert.assertTrue(qaConcortPage.listOfHotelroomreservartions.isDisplayed(),"List Of Hotelroomreservations yazisi gorunmuyor!");
+        Assert.assertTrue(qaConcortPage.listOfHotelroomreservartions.isDisplayed(), "List Of Hotelroomreservations yazisi gorunmuyor!");
         Driver.closeDriver();
     }
 }
