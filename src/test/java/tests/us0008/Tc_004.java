@@ -12,7 +12,7 @@ public class Tc_004 {
     1-"Id User" ve 2."Id User" dropdown seçenekleri görünmeli ve seçilmeli
     2- "Id User" dropdown kısmınına  verilen test data seçilmeli
     3-  2."Id User"  Select Hotel Room kısmına verilen test data seçilmeli
-       Id User:manager  Id User(Select Hotel Room):Guzelbahce
+       Id User:manager  Id User(Select Hotel Room):OnurEnes
      */
 
     @Test
