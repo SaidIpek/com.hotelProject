@@ -15,7 +15,7 @@ public class Tc_003 {
     //3) Kriter seçiminden sonra gelen otel seçenekleri tiklanabilir olmali.
 
     @Test
-    public void test()  {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();

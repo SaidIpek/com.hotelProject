@@ -24,10 +24,10 @@ public class US0010PositiveTest {
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu,5);
+        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu, 5);
         qaConcortPage.loginButonu.click();
 
         Assert.assertTrue(qaConcortPage.theBestHotelInTheRegionYazisiUs010.isDisplayed(), "The best hotel in the region yazisi gorunmuyor!");
-       Driver.closeDriver();
+        Driver.closeDriver();
     }
 }
