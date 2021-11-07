@@ -14,7 +14,6 @@ public class Tc_004 {
     3-  2."Id User"  Select Hotel Room kısmına verilen test data seçilmeli
        Id User:manager  Id User(Select Hotel Room):OnurEnes
      */
-
     @Test
     public void test() throws InterruptedException {
 

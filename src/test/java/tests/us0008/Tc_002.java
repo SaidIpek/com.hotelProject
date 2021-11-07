@@ -17,15 +17,15 @@ public class Tc_002 {
     @Test
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
-        QAConcortPage qaConcortPage=new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelManagementSekmesi.click();
         qaConcortPage.roomReservationsSekmesi.click();
         qaConcortPage.listOfReservationYazısı.isDisplayed();
-        Select select=new Select(qaConcortPage.viewSelectDropDown);
+        Select select = new Select(qaConcortPage.viewSelectDropDown);
         select.selectByValue("-1");
 
-        for (WebElement each:qaConcortPage.lisOfReservationListesi) {
+        for (WebElement each : qaConcortPage.lisOfReservationListesi) {
             System.out.print(each.getText());
             Driver.closeDriver();
         }
