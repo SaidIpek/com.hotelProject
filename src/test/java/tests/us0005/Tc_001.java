@@ -8,6 +8,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class Tc_001 {
+
     //TC-001 "System Management" Menusunun icerisinde "Hotel List" sekmesi gorunmeli ,
     // tiklanilabilmeli ve acilan sayfada "LIST OF HOTELS" table'i gorunmeli
     // 1-Kullanici Concort Hotel (Admin) sayfasina gider.
@@ -15,6 +16,7 @@ public class Tc_001 {
     // 3-Acilan sayfada sol menuden "System Management" menusunun altindaki "Hotel Management" sekmesine  tiklar
     //  4-Ardindan "Hotel List" secegine tiklar.
     //  5-Acilan sayfada "LIST OF HOTELS" yazisi gorunmeli
+
     @Test
     public  void test() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));

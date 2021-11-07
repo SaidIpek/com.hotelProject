@@ -41,6 +41,7 @@ public class Tc_004 {
         qaConcortPage.hotelDataListSuccesfullYazisi.isDisplayed();
         Assert.assertTrue(qaConcortPage.alertOKListButonu.isEnabled());
         qaConcortPage.alertOKListButonu.click();
+
         Driver.closeDriver();
     }
 }

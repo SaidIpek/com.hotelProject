@@ -11,6 +11,7 @@ import utilities.ReusableMethods;
 import java.util.Set;
 
     public class Tc_002 {
+
         /*US-2 -Tabloda bulunan "Details" Butonunun gorulebilir ve tiklanabilir olmasi gerekir, Acilacak olan sayfada ise "Edit Hotel" yazisi gorunmeli,
         "General Data","Photos","Properties" sekmeleri bulunmali
          TC-002
@@ -23,6 +24,7 @@ import java.util.Set;
          ve tiklanabilir olmali
          7-Acilacak "Edit Hotel" sayfasinda "Hotel Data" bolumu bulunmali
        */
+
         @Test
         public void test() {
             Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
