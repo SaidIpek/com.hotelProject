@@ -17,12 +17,12 @@ public class Tc_002 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
-        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword") );
+        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
         qaConcortPage.loginButonu.click();
         qaConcortPage.hotelManagementButonu.click();
         qaConcortPage.hotelRoomsButonu.click();
         qaConcortPage.addHotelRoomButonu.click();
-        Assert.assertTrue( qaConcortPage.createHotelRoomUstYazisi.isDisplayed(),"Create Hotelroom yazisi gorulmedi");
+        Assert.assertTrue(qaConcortPage.createHotelRoomUstYazisi.isDisplayed(), "Create Hotelroom yazisi gorulmedi");
         Driver.closeDriver();
     }
 }
