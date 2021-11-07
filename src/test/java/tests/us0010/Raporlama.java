@@ -56,7 +56,7 @@ public class Raporlama extends TestBaseRapor {
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
         ReusableMethods.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com").perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi,15);
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, 15);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCreditCardNumberTextboxi, "5555555555555555").perform();
@@ -68,15 +68,15 @@ public class Raporlama extends TestBaseRapor {
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCVVTextboxi, "123")
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiMessageTextboxi, "Odami sakin taraftan istiyorum. Sesli bir konumu varsa tarafima bilgi verilmesini rica ederim")
                 .sendKeys(Keys.TAB).perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu, 10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu).perform();
 
         extentTest.info("Kisisel bilgiler girildi ve rezervasyon tamamlandi.");
 
-        if (qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed()==true) {
+        if (qaConcortPage.reservationWasMadeSuccessfullyUs010.isDisplayed() == true) {
             extentTest.pass("Reservation was made successfully yazisi goruldu.");
-        }else {
-            ReusableMethods.getScreenshot("Reservation was made successfully yazisi goruldu.");
+        } else {
+            ReusableMethods.getScreenshot("Reservation was made successfully yazisi cikmadi!");
         }
 
         Driver.closeDriver();

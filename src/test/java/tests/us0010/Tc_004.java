@@ -26,7 +26,7 @@ public class Tc_004 {
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu, 10);
         qaConcortPage.loginButonu.click();
 
         Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateBox.isEnabled(), "Check in date boxi etkin degil!");

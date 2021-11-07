@@ -14,7 +14,7 @@ public class Tc_002 {
     public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelRoomsGiris();
-        ReusableMethods.waitForVisibility(qaConcortPage.advancedSearchBasligi,5);
+        ReusableMethods.waitForVisibility(qaConcortPage.advancedSearchBasligi, 5);
         Assert.assertTrue(qaConcortPage.advancedSearchBasligi.isDisplayed(), "Advanced Search basligi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckinDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check in date box'i etkin degil!");
         Assert.assertTrue(qaConcortPage.advancedSearchBasligiCheckoutDateBoxUs010.isEnabled(), "Advanced Search basligi altindaki check out date box'i etkin degil!");

@@ -39,7 +39,6 @@ public class US0010NegativeTest {
         ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi,10);
         actions.click(qaConcortPage.TodBruenOdaSayfasindakiCheckoutDateTakvimi).perform();
 
-
         Select select = new Select(qaConcortPage.TodBruenOdaSayfasindakiSelectAdultCountDropdown);
         select.selectByVisibleText("1 Adult");
 
