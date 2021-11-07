@@ -336,7 +336,7 @@ public class QAConcortPage {
     @FindBy (xpath = "//a[text()='Properties']")
     public WebElement PropertiesListLinki;
 
-    @FindBy (partialLinkText = "General Data")
+    @FindBy (xpath = "//*[text()='General Data']")
     public WebElement GeneralDataListLinki;
 
     @FindBy (xpath = "(//div[@class='caption'])[2]")
@@ -351,7 +351,7 @@ public class QAConcortPage {
     @FindBy (xpath ="(//div[@class='col-md-2 name'])[2]")
     public WebElement nameListYazisi;
 
-    @FindBy (xpath ="(//*[@type='text'][1])")
+    @FindBy (xpath ="(//*[@type='text'])[2]")
     public WebElement nameListTextBoxi;
 
     @FindBy (xpath ="(//div[@class='col-md-2 name'])[3]")
@@ -366,32 +366,32 @@ public class QAConcortPage {
     @FindBy (xpath = "//*[@title='Phone']")
     public WebElement phoneListTextBoxi;
 
-    @FindBy(xpath = "//input[@value='josue.bradtke@gmail.com']")
+    @FindBy(xpath = "//input[@id='Email']")
     public WebElement EmailListTextBoxi;
 
-    @FindBy(id = "//*[@id='IDGroup']")
+    @FindBy(id  = "//*[@id='IDGroup']")
     public WebElement GroupDropDownListBoxi;
 
     @FindBy(xpath = "(//button[@class='btn green'])[1]")
     public WebElement hotelDataListSaveButonu;
 
-    @FindBy(xpath = "(//i[@class='fa fa-check'])[1]")
-    public WebElement saveListIkonu;
+    @FindBy(xpath = "(//div[@class='col-md-2 name'])[5]")
+    public WebElement emailListYazisi;
 
     @FindBy(xpath = "//*[text()='Hotel was updated successfully']")
     public WebElement hotelDataListSuccesfullYazisi;
 
-    @FindBy(xpath = "//*[text()='OK'")
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement alertOKListButonu;
 
     @FindBy(id = "btnDelete")
     public WebElement deleteListButonu;
 
-    @FindBy (xpath = "(//div[@class='caption'])[4]")
-    public WebElement deleteHotelYaziElementi;
+    @FindBy (xpath = "(//button[@type='button'])[6]")
+    public WebElement alertOk2;
 
-    @FindBy(xpath = "//a[@class='collapse']")
-    public WebElement deleteListIkonu;
+    @FindBy(xpath = "//*[text()='Would you like to continue?']")
+    public WebElement wouldULikeToContinue;
 
     //US006test locatorleri
 

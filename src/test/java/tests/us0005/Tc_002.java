@@ -1,11 +1,15 @@
 
     package tests.us0005;
-import org.openqa.selenium.interactions.Actions;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.util.Set;
+
     public class Tc_002 {
         /*US-2 -Tabloda bulunan "Details" Butonunun gorulebilir ve tiklanabilir olmasi gerekir, Acilacak olan sayfada ise "Edit Hotel" yazisi gorunmeli,
         "General Data","Photos","Properties" sekmeleri bulunmali
@@ -20,33 +24,41 @@ import utilities.Driver;
          7-Acilacak "Edit Hotel" sayfasinda "Hotel Data" bolumu bulunmali
        */
         @Test
-        public void test() throws InterruptedException {
+        public void test() {
             Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
             QAConcortPage qaConcortPage = new QAConcortPage();
-            Thread.sleep(2000);
             qaConcortPage.ConcortHotelLogin();
-//            Actions actions = new Actions(Driver.getDriver());
-//            Thread.sleep(5000);
-//            qaConcortPage.hotelManagementLinki.click();
-//            Thread.sleep(5000);
-//            qaConcortPage.hotelListLink.click();
-//            Assert.assertTrue( qaConcortPage.ListOfHotelYAziElementi.isDisplayed(),"list hotel yazisi gorunmuyor");
-//            Assert.assertTrue( qaConcortPage.ListOfHotelYAziElementi.isDisplayed(),"list hotel yazisi gorunmuyor");
-//            Assert.assertTrue(qaConcortPage.detailsButonu.isDisplayed(),"detail yazisi gorunmuyor");
-//            qaConcortPage.detailsButonu.click();
-//            Thread.sleep(5000);
-//            Assert.assertTrue(qaConcortPage.GeneralDataListLinki.isDisplayed(),"general data yazisi bulunmuyor");
-//            qaConcortPage.photosListLinki.click();
-//            Assert.assertTrue(qaConcortPage.photosListLinki.isDisplayed(),"photos yazisi bulunmuyor");
-//            qaConcortPage.photosListLinki.click();
-//            Assert.assertTrue(qaConcortPage.PropertiesListLinki.isDisplayed(),"properties yazisi bulunmuyor");
-//            qaConcortPage.PropertiesListLinki.click();
-//            Assert.assertTrue(qaConcortPage.EditHotelListYAziElementi.isDisplayed(),"Edit Hotel YAzi Elementi bulunmuyor");
-//            Assert.assertTrue(qaConcortPage.HotelDataListLinki.isDisplayed()," Hotel Data Yazi Elementi bulunmuyor");
-   Driver.closeDriver();
+            ReusableMethods.waitForClickablility(qaConcortPage.hotelManagementLinki, 10);
+            qaConcortPage.hotelManagementLinki.click();
+            ReusableMethods.waitForClickablility(qaConcortPage.hotelListLink, 10);
+            qaConcortPage.hotelListLink.click();
+
+            Assert.assertTrue(qaConcortPage.detailsButonu.isDisplayed(), "details yazisi gorunmuyor");
+            qaConcortPage.detailsButonu.click();
+
+            String ilkHandle = Driver.getDriver().getWindowHandle();
+            Set<String> set = Driver.getDriver().getWindowHandles();
+            String ikinciHandle = "";
+            for (String w : set
+            ) {
+                if (!w.equals(ilkHandle)) {
+                    ikinciHandle = w;
+                }
+            }
+
+            Driver.getDriver().switchTo().window(ikinciHandle);
+            Assert.assertTrue(qaConcortPage.GeneralDataListLinki.isDisplayed(), "general data yazisi bulunmuyor");
+            Assert.assertTrue(qaConcortPage.GeneralDataListLinki.isEnabled(), "general data yazisi etkin degil");
+            Assert.assertTrue(qaConcortPage.photosListLinki.isDisplayed(), "photos yazisi bulunmuyor");
+            Assert.assertTrue(qaConcortPage.photosListLinki.isEnabled(), "photos yazisi etkin degil");
+            Assert.assertTrue(qaConcortPage.PropertiesListLinki.isDisplayed(), "properties yazisi bulunmuyor");
+            Assert.assertTrue(qaConcortPage.PropertiesListLinki.isEnabled(), "properties yazisi etkin degil");
+
+            Assert.assertTrue(qaConcortPage.EditHotelListYAziElementi.isDisplayed(), "Edit Hotel YAzi Elementi bulunmuyor");
+            Assert.assertTrue(qaConcortPage.HotelDataListLinki.isDisplayed(), " Hotel Data Yazi Elementi bulunmuyor");
+
+            Driver.closeDriver();
         }
-
-
     }
 
 
