@@ -18,7 +18,6 @@ public class Tc_001 {
         Assert.assertTrue(concortHotelPage.createAnewAccountbutonu.isDisplayed());
         Assert.assertTrue(concortHotelPage.createAnewAccountbutonu.isEnabled());
 
-
         Driver.closeDriver();
     }
 }
