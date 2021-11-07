@@ -2,7 +2,7 @@
 <suite name="Tum proje calistirma">
     <test name="Tum proje">
         <packages>
-            <package name="tests.us0010"></package>
+            <package name=".*"></package>
         </packages>
     </test>
 </suite>

@@ -62,6 +62,7 @@ public class Tc_004 {
                 .perform();
         concortHotelPage.registrationSaveButonu.click();
         Assert.assertTrue(concortHotelPage.registrationSaveButonu.isDisplayed());
+        Driver.closeDriver();
     }
 }
 

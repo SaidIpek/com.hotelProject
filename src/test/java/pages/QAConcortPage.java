@@ -540,21 +540,23 @@ public class QAConcortPage {
     @FindBy(className = "bootbox-body")
     public WebElement hotelRoomFailSaveMessage;
 
-    public void details(){
+    public void details() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
         ArrayList<Integer>random=new ArrayList<>();
         int count=0;
         random.add(0);
-        while (count<=3){
+        while (count<=1){
             Random rnd = new Random();
             int detail = rnd.nextInt(10) + 1;
             if (!random.contains(detail)){
                 random.add(detail);
                 Assert.assertTrue(Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isDisplayed(),"Details Button is not Displayed");
                 Assert.assertTrue( Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isEnabled());
+                Thread.sleep(2000);
                 Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
                 Assert.assertEquals(qaConcortPage.editHotelRoomElement.getText(), ConfigReader.getProperty("EditHotelRoomElementi"),"Edit Hotelroom element is not Displayed");
                 Assert.assertTrue(qaConcortPage.generalDataElement.isDisplayed());
+                Thread.sleep(2000);
                 Assert.assertEquals(qaConcortPage.hotelRoomDataElement.getText(),ConfigReader.getProperty("HotelRoomDataElementi"));
                 Driver.getDriver().navigate().back();
                 count++;

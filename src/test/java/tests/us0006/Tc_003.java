@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Tc_003 {
 
@@ -39,6 +40,7 @@ public class Tc_003 {
         Thread.sleep(2000);
         actions.sendKeys(qaConcortPage.descriptionBolumuInCreateHotelRoom,"The best view ...").perform();
         Thread.sleep(2000);
+        ReusableMethods.scrollInToWiew( qaConcortPage.saveButonuInCreateHotelRoom);
         qaConcortPage.priceBolumuInCreateHotelRoom.sendKeys(ConfigReader.getProperty("Price"));
         WebElement dropDownMenuRoomType = Driver.getDriver().findElement(By.id("IDGroupRoomType"));
         Select dropDownList2= new Select(dropDownMenuRoomType);

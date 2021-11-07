@@ -15,11 +15,10 @@ public class Tc_001 {
 
         concortHotelPage.ilkLoginLinki.click();
 
-        concortHotelPage.usernameKutusu.sendKeys("manager");
-
-        concortHotelPage.passwordKutusu.sendKeys("Manager1!");
-        concortHotelPage.loginButonu.click();
         Assert.assertTrue(concortHotelPage.createAnewAccountbutonu.isDisplayed());
+        Assert.assertTrue(concortHotelPage.createAnewAccountbutonu.isEnabled());
+
+
         Driver.closeDriver();
     }
 }

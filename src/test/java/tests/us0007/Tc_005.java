@@ -33,13 +33,16 @@ public class Tc_005 extends TestBaseRapor {
         ArrayList<Integer> random=new ArrayList<>();
         int count=0;
         random.add(0);
-        while (count<=3){
+        while (count<=1){
             Random rnd = new Random();
+            Actions actions=new Actions(Driver.getDriver());
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
             int detail = rnd.nextInt(10) + 1;
 
             if (!random.contains(detail)){
                 random.add(detail);
 
+                Thread.sleep(3000);
                 Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
                 extentTest.info("Details button tested");
                 Assert.assertTrue(qaConcortPage.hotelRoomDataHotelDropDown.isDisplayed());
@@ -48,7 +51,6 @@ public class Tc_005 extends TestBaseRapor {
                 extentTest.info("Hotel DropDown tested");
 
 
-                Actions actions=new Actions(Driver.getDriver());
                 actions.sendKeys(Keys.TAB).
                         sendKeys(ConfigReader.getProperty("HotelRoomCodeElement")).
                         sendKeys(Keys.TAB).

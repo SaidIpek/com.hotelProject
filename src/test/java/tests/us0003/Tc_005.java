@@ -65,6 +65,7 @@ public class Tc_005 {
         concortHotelPage.registrationSaveButonu.click();
         Thread.sleep(1000);
         concortHotelPage.okButonu.click();
+        Driver.closeDriver();
 
     }
 }
