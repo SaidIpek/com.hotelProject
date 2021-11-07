@@ -12,12 +12,14 @@ import utilities.ReusableMethods;
 import java.util.Set;
 
 public class Tc_005 {
+
     //TC-0005- "General Data" kisminda "Delete Hotel" yazisinin gorulebilir ve "Delete"  butonu tiklanilabilir olmali
     //ardindan"Hotel successfully deleted" yazisi gorunmeli ve "ok" butonuna tiklanilabilmeli
     //6-Tekrar "DETAILS" kisminda "General Data" bolumune gidilir
     //7-"Delete Hotel" Kisminda "DELETE" butonu gorunur olmali
     //8-"DELETE' butonuna tiklanilmali
     //9-"Hotel successfully deleted" yazisi gorunmeli ve ardindan "OK" butonuna basilmali
+
     @Test
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));

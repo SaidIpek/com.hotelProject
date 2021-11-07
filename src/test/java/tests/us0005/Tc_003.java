@@ -10,6 +10,21 @@ import utilities.Driver;
 import java.util.Set;
 public class Tc_003 {
 
+    /*
+    1-Kullanici Concort Hotel (Admin) sayfasina gider.
+2-Sag ustte log in butonunu tiklar ardindan Username ve Sifre girilmeli
+3-Acilan sayfada sol menuden "System Management" menusunun altindaki "Hotel Management" sekmesine  tiklar
+4-Ardindan "Hotel List" secegine tiklar.
+5-"LIST OF HOTELS" tablosunda bulunan "DETAILS"  butonu gorulmeli ardindan tiklanmali
+ 6-"Code" textbox'i gorunmeli ve degistirilebilmeli.
+ 7-"Name" textbox'i gorunmeli ve degistirilebilmeli.
+8-"Adress" textbox'i gorunmeli ve degistirilebilmeli.
+9-"Phone" textbox'i gorunmeli ve degistirilebilmeli.
+10-"Email" textbox'i gorunmeli ve degistirilebilmeli.
+11-"Group" dropDown'i gorunmeli ve secilebilir olmali
+12-"Save" butonu gorunmeli ve tiklanilabilmeli.
+     */
+
     @Test
     public void test() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
