@@ -21,7 +21,6 @@ public class Tc_004 {
         Actions actions = new Actions(Driver.getDriver());
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
 
-
         qaConcortPage.ilkLoginLinki.click();
 
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
@@ -29,7 +28,6 @@ public class Tc_004 {
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
 
         qaConcortPage.loginButonu.click();
-
 
         WebElement dropDown = qaConcortPage.systemManagementSekmesi;
 
@@ -95,9 +93,7 @@ public class Tc_004 {
 
         qaConcortPage.roomReservationsSaveButonu.click();
 
-
         Driver.closeDriver();
-
 
     }
 }
