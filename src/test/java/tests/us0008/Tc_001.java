@@ -18,6 +18,7 @@ public class Tc_001 {
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelManagementSekmesi.click();
         qaConcortPage.roomReservationsSekmesi.click();
+        Driver.closeDriver();
     }
 
 }

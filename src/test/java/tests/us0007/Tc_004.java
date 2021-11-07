@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class Tc_004 {
@@ -21,6 +22,7 @@ public class Tc_004 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelRooms();
+        Thread.sleep(2000);
         qaConcortPage.details();
 
 

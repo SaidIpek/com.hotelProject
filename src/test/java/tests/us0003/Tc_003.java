@@ -68,5 +68,6 @@ public class Tc_003 {
                 .sendKeys(Keys.TAB)
                 .sendKeys(concortHotelPage.registrationBirthDateDropdown,faker.date().birthday().toString())
                 .perform();
+        Driver.closeDriver();
     }
 }

@@ -25,7 +25,7 @@ public class Tc_006 {
         Select select = new Select(qaConcortPage.idUserDropdownu);
         select.selectByVisibleText("manager");
         Select select1 = new Select(qaConcortPage.idHotelRoomDropdownu);
-        select1.selectByVisibleText("Guzelbahce");
+        select1.selectByVisibleText("OnurEnes");
         actions.sendKeys(qaConcortPage.pricetextBoxi, "1000").perform();
         actions.click(qaConcortPage.dateStartTakvimIkonu).perform();
         rm.waitForClickablility(qaConcortPage.dateStartTakvimi,10);

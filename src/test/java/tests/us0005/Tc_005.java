@@ -17,20 +17,21 @@ public class Tc_005 {
     public void test() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
+        Thread.sleep(2000);
         qaConcortPage.ConcortHotelLogin();
-        Actions actions = new Actions(Driver.getDriver());
-        Thread.sleep(5000);
-        qaConcortPage.hotelManagementLinki.click();
-        Thread.sleep(5000);
-        qaConcortPage.hotelListLink.click();
-        Assert.assertTrue( qaConcortPage.ListOfHotelYAziElementi.isDisplayed(),"list hotel yazisi gorunmuyor");
-        actions.sendKeys(qaConcortPage.detailsListButonu)
-                .sendKeys(qaConcortPage.GeneralDataListLinki)
-                .sendKeys(qaConcortPage.deleteListIkonu)
-                .sendKeys(qaConcortPage.deleteListButonu)
-                .perform();
-        Assert.assertTrue(qaConcortPage.deleteListButonu.isDisplayed());
-        qaConcortPage.deleteListButonu.click();
+//        Actions actions = new Actions(Driver.getDriver());
+//        Thread.sleep(5000);
+//        qaConcortPage.hotelManagementLinki.click();
+//        Thread.sleep(5000);
+//        qaConcortPage.hotelListLink.click();
+//        Assert.assertTrue( qaConcortPage.ListOfHotelYAziElementi.isDisplayed(),"list hotel yazisi gorunmuyor");
+//        actions.sendKeys(qaConcortPage.detailsListButonu)
+//                .sendKeys(qaConcortPage.GeneralDataListLinki)
+//                .sendKeys(qaConcortPage.deleteListIkonu)
+//                .sendKeys(qaConcortPage.deleteListButonu)
+//                .perform();
+//        Assert.assertTrue(qaConcortPage.deleteListButonu.isDisplayed());
+//        qaConcortPage.deleteListButonu.click();
         // Assert.assertTrue();
         //Actions actions1 = new Actions(Driver.getDriver());
         // actions.contextClick().perform();

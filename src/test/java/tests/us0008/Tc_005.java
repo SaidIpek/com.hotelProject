@@ -45,7 +45,7 @@ public class Tc_005 {
         Select select = new Select(qaConcortPage.idUserDropdownu);
         select.selectByVisibleText("manager");
         Select select1 = new Select(qaConcortPage.idHotelRoomDropdownu);
-        select1.selectByVisibleText("Guzelbahce");
+        select1.selectByVisibleText("OnurEnes");
 
         Assert.assertTrue(qaConcortPage.pricetextBoxi.isDisplayed(), "Price textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.pricetextBoxi.isEnabled(), "Price textboxi etkin degil!");

@@ -18,5 +18,6 @@ public class Tc_002 {
         concortHotelPage.ilkLoginLinki.click();
         concortHotelPage.createAnewAccountbutonu.click();
         Assert.assertTrue(concortHotelPage.registrationFormSayfası.isDisplayed());
+        Driver.closeDriver();
     }
 }

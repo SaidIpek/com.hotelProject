@@ -33,7 +33,7 @@ public class Tc_006 extends TestBaseRapor {
         ArrayList<Integer> random=new ArrayList<>();
         int count=0;
         random.add(0);
-        while (count<=3){
+        while (count<=1){
             Random rnd = new Random();
             int detail = rnd.nextInt(10) + 1;
 

@@ -30,7 +30,7 @@ public class Tc_004 {
         Select select = new Select(qaConcortPage.idUserDropdownu);
         select.selectByVisibleText("manager");
         Select select1 = new Select(qaConcortPage.idHotelRoomDropdownu);
-        select1.selectByVisibleText("Guzelbahce");
+        select1.selectByVisibleText("OnurEnes");
         Driver.closeDriver();
 
     }

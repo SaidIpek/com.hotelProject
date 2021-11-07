@@ -24,9 +24,10 @@ public class Tc_002 {
         qaConcortPage.listOfReservationYazısı.isDisplayed();
         Select select=new Select(qaConcortPage.viewSelectDropDown);
         select.selectByValue("-1");
-        System.out.println(qaConcortPage.foundTotalListeSayısı.getText());
+
         for (WebElement each:qaConcortPage.lisOfReservationListesi) {
             System.out.print(each.getText());
+            Driver.closeDriver();
         }
     }
 
