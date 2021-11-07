@@ -26,7 +26,7 @@ public class Tc_005 {
      Date end:11/08/2021
      Adult Amount: 2
      Children Amount: 1
-      Contact Namesurname:Seda Fehime
+      Contact Namesurname:Seda Merve
      Contact Phone:5551233423
      Contact Email:hotelteam5@gmail.com
      Notes:Mutlu Günler
@@ -36,7 +36,6 @@ public class Tc_005 {
     public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
         Actions actions = new Actions(Driver.getDriver());
-        ReusableMethods rm = new ReusableMethods();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelManagementSekmesi.click();
         qaConcortPage.roomReservationsSekmesi.click();
@@ -54,14 +53,14 @@ public class Tc_005 {
         Assert.assertTrue(qaConcortPage.dateStarttextBoxi.isDisplayed(), "Date Start textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.dateStarttextBoxi.isEnabled(), "Date Start textboxi etkin degil!");
         actions.click(qaConcortPage.dateStartTakvimIkonu).perform();
-        rm.waitForClickablility(qaConcortPage.dateStartTakvimi,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.dateStartTakvimi,10);
         actions.click(qaConcortPage.dateStartTakvimi).perform();
 
-       rm.waitForClickablility(qaConcortPage.dateEndTextBoxi,10);
+       ReusableMethods.waitForClickablility(qaConcortPage.dateEndTextBoxi,10);
         Assert.assertTrue(qaConcortPage.dateEndTextBoxi.isDisplayed(), "Date End textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.dateEndTextBoxi.isEnabled(), "Date End textboxi etkin degil!");
         actions.click(qaConcortPage.dateEndTakvimIkonu).perform();
-        rm.waitForClickablility(qaConcortPage.dateEndTakvimi,10);
+        ReusableMethods.waitForClickablility(qaConcortPage.dateEndTakvimi,10);
         actions.click(qaConcortPage.dateEndTakvimi).perform();
 
         Assert.assertTrue(qaConcortPage.adultAmountTextBoxi.isDisplayed(), "Adult Amount textboxi gorunmuyor!");
@@ -74,7 +73,7 @@ public class Tc_005 {
 
         Assert.assertTrue(qaConcortPage.contactNameSurnameTextBoxi.isDisplayed(), "Contact name Surname textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.contactNameSurnameTextBoxi.isEnabled(), "Contact name Surname textboxi etkin degil!");
-        actions.sendKeys(qaConcortPage.contactNameSurnameTextBoxi, "Seda Fehime").perform();
+        actions.sendKeys(qaConcortPage.contactNameSurnameTextBoxi, "Seda Merve").perform();
 
         Assert.assertTrue(qaConcortPage.contactPhoneTextBoxi.isDisplayed(), "Contact Phone textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.contactPhoneTextBoxi.isEnabled(), "Contact Phone textboxi etkin degil!");
@@ -84,7 +83,7 @@ public class Tc_005 {
         Assert.assertTrue(qaConcortPage.contactEmailTextBoxi.isEnabled(), "Contact Email textboxi etkin degil!");
         actions.sendKeys(qaConcortPage.contactEmailTextBoxi, "hotelteam5@gmail.com").perform();
 
-        rm.scrollInToWiew(qaConcortPage.createHotelroomreservatıonSaveButonu);
+        ReusableMethods.scrollInToWiew(qaConcortPage.createHotelroomreservatıonSaveButonu);
 
         Assert.assertTrue(qaConcortPage.notesTextBoxi.isDisplayed(), "Notes textboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.notesTextBoxi.isEnabled(), "Notes textboxi etkin degil!");
@@ -94,7 +93,7 @@ public class Tc_005 {
         Assert.assertTrue(qaConcortPage.approvedCheckbox.isEnabled(), "Approved checkboxi etkin degil!");
         actions.click(qaConcortPage.approvedCheckboxTiklamakIcin).perform();
 
-        rm.waitForClickablility(qaConcortPage.isPaidCheckbox,5);
+        ReusableMethods.waitForClickablility(qaConcortPage.isPaidCheckbox,5);
         Assert.assertTrue(qaConcortPage.isPaidCheckbox.isDisplayed(), "Ispaid checkboxi gorunmuyor!");
         Assert.assertTrue(qaConcortPage.isPaidCheckbox.isEnabled(), "Ispaid checkboxi etkin degil!");
         actions.click(qaConcortPage.isPaidCheckbox).perform();
