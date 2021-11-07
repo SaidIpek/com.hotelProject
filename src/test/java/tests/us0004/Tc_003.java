@@ -7,11 +7,12 @@ import pages.QAConcortPage;
 import utilities.Driver;
 
 public class Tc_003 {
+
     @Test
     public void test() throws InterruptedException {
 
         // 1- Sag ustte bulunan add hotel butonuna tiklar
-        QAConcortPage qaConcortPage= new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
 
         qaConcortPage.ConcortHotelLogin();
 

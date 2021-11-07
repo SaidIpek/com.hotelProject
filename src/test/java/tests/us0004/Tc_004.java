@@ -22,7 +22,7 @@ public class Tc_004 {
         //6- "IDGroup" butonuna tiklar ve dropdowndan hotel tipini secer
         //7- "Save" butonuna tiklar
 
-        QAConcortPage qaConcortPage= new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
 
         qaConcortPage.ConcortHotelLogin();
 
@@ -30,7 +30,7 @@ public class Tc_004 {
         qaConcortPage.US04HotelList.click();
         qaConcortPage.US4AddHotelButonu.click();
 
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
 
         actions.
                 click(qaConcortPage.US4CodeTextbox)
@@ -46,7 +46,7 @@ public class Tc_004 {
                 .sendKeys(Keys.PAGE_DOWN)
                 .perform();
 
-        Select select=new Select(qaConcortPage.US4IDGroupDropdown);
+        Select select = new Select(qaConcortPage.US4IDGroupDropdown);
         select.selectByVisibleText(ConfigReader.getProperty("US04IDGroup"));
 
         Thread.sleep(1000);

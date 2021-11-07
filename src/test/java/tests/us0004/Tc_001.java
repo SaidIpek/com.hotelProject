@@ -29,7 +29,6 @@ public class Tc_001 {
         Assert.assertTrue(qaConcortPage.US4OtelEklemeSystemManagementMenüsü.isDisplayed());
         Assert.assertTrue(qaConcortPage.US4OtelEklemeListOfUsersTablosu.isDisplayed());
 
-
         Driver.closeDriver();
     }
 }
