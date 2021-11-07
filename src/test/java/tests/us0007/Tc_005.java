@@ -89,7 +89,7 @@ public class Tc_005 extends TestBaseRapor {
                 Thread.sleep(2000);
                 Assert.assertEquals(qaConcortPage.hotelRoomSuccess.getText(), ConfigReader.getProperty("HotelRoomSuccess"));
                 extentTest.info("#Hotel Room Success# text tested");
-                if (count == 3) {
+                if (count == 1) {
                     ReusableMethods.getScreenshot("HotelRoom Updated");
                 }
 
