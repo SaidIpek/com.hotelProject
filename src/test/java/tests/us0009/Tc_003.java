@@ -20,7 +20,6 @@ public class Tc_003 {
         Actions actions = new Actions(Driver.getDriver());
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
 
-
         qaConcortPage.ilkLoginLinki.click();
 
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
@@ -28,7 +27,6 @@ public class Tc_003 {
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
 
         qaConcortPage.loginButonu.click();
-
 
         WebElement dropDown = qaConcortPage.systemManagementSekmesi;
 
@@ -93,7 +91,6 @@ public class Tc_003 {
         qaConcortPage.isPaidCheckbox.click();
 
         Driver.closeDriver();
-
 
     }
 }
