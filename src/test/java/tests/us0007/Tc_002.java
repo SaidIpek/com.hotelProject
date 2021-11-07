@@ -7,17 +7,17 @@ import utilities.Driver;
 
 public class Tc_002 {
 
-@Test
+    @Test
     public void editHotel() throws InterruptedException {
-    QAConcortPage qaConcortPage = new QAConcortPage();
+        QAConcortPage qaConcortPage = new QAConcortPage();
 
-    qaConcortPage.ConcortHotelLogin();
+        qaConcortPage.ConcortHotelLogin();
 
-    qaConcortPage.hotelRooms();
+        qaConcortPage.hotelRooms();
 
-     qaConcortPage.details();
+        qaConcortPage.details();
 
-    Driver.closeDriver();
-}
+        Driver.closeDriver();
+    }
 
 }
