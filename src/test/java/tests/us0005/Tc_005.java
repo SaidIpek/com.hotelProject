@@ -41,7 +41,7 @@ public class Tc_005 {
         }
 
         Driver.getDriver().switchTo().window(ikinciHandle);
-        ReusableMethods.scrollInToWiew(qaConcortPage.deleteListButonu);
+        ReusableMethods.scrollDown();
         Assert.assertTrue(qaConcortPage.deleteListButonu.isDisplayed());
         qaConcortPage.deleteListButonu.click();
         ReusableMethods.waitForVisibility(qaConcortPage.wouldULikeToContinue,5);
