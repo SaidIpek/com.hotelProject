@@ -14,6 +14,8 @@ public class Tc_001 {
         qaConcortPage.hotelManagementSekmesi.click();
         Assert.assertTrue(qaConcortPage.roomReservationsSekmesi.isDisplayed());
         Assert.assertTrue(qaConcortPage.roomReservationsSekmesi.isEnabled());
+        qaConcortPage.roomReservationsSekmesi.click();
+        Assert.assertTrue(qaConcortPage.listOfReservationYazısı.isDisplayed());
         Driver.closeDriver();
     }
 
