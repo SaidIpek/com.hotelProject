@@ -56,7 +56,7 @@ public class Raporlama extends TestBaseRapor {
         qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi.clear();
         ReusableMethods.scrollInToWiew(qaConcortPage.TodBruenOdaSayfasindakiBookThisRoomButonu);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiEmailTextboxi, "aralik@gmail.com").perform();
-        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, 15);
+        ReusableMethods.waitForClickablility(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, 20);
         actions.sendKeys(qaConcortPage.TodBruenOdaSayfasindakiPhoneNumberTextboxi, faker.phoneNumber().phoneNumber())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiNameOnCreditCardTextboxi, faker.name().fullName())
                 .sendKeys(qaConcortPage.TodBruenOdaSayfasindakiCreditCardNumberTextboxi, "5555555555555555").perform();
