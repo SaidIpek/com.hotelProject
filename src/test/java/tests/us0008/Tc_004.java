@@ -12,9 +12,8 @@ public class Tc_004 {
     1-"Id User" ve 2."Id User" dropdown seçenekleri görünmeli ve seçilmeli
     2- "Id User" dropdown kısmınına  verilen test data seçilmeli
     3-  2."Id User"  Select Hotel Room kısmına verilen test data seçilmeli
-       Id User:manager  Id User(Select Hotel Room):Guzelbahce
+       Id User:manager  Id User(Select Hotel Room):OnurEnes
      */
-
     @Test
     public void test() throws InterruptedException {
 
@@ -30,7 +29,7 @@ public class Tc_004 {
         Select select = new Select(qaConcortPage.idUserDropdownu);
         select.selectByVisibleText("manager");
         Select select1 = new Select(qaConcortPage.idHotelRoomDropdownu);
-        select1.selectByVisibleText("Guzelbahce");
+        select1.selectByVisibleText("OnurEnes");
         Driver.closeDriver();
 
     }

@@ -20,7 +20,7 @@ public class Tc_004 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
-        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword") );
+        qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
         qaConcortPage.loginButonu.click();
         Thread.sleep(2000);
         qaConcortPage.hotelManagementButonu.click();
@@ -39,22 +39,22 @@ public class Tc_004 {
 
         WebElement dropAlani = Driver.getDriver().findElement(By.xpath("//input[@id='Price']"));
 
-        actions.dragAndDrop(dragElementi1,dropAlani).perform();
+        actions.dragAndDrop(dragElementi1, dropAlani).perform();
         qaConcortPage.priceBolumuInCreateHotelRoom.clear();
 
-        actions.dragAndDrop(dragElementi2,dropAlani).perform();
+        actions.dragAndDrop(dragElementi2, dropAlani).perform();
         qaConcortPage.priceBolumuInCreateHotelRoom.clear();
 
-        actions.dragAndDrop(dragElementi3,dropAlani).perform();
+        actions.dragAndDrop(dragElementi3, dropAlani).perform();
         qaConcortPage.priceBolumuInCreateHotelRoom.clear();
 
-        actions.dragAndDrop(dragElementi4,dropAlani).perform();
+        actions.dragAndDrop(dragElementi4, dropAlani).perform();
         qaConcortPage.priceBolumuInCreateHotelRoom.clear();
 
-        actions.dragAndDrop(dragElementi5,dropAlani).perform();
+        actions.dragAndDrop(dragElementi5, dropAlani).perform();
         qaConcortPage.priceBolumuInCreateHotelRoom.clear();
 
-        actions.dragAndDrop(dragElementi6,dropAlani).perform();
+        actions.dragAndDrop(dragElementi6, dropAlani).perform();
         Driver.closeDriver();
     }
 }

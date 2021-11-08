@@ -336,7 +336,7 @@ public class QAConcortPage {
     @FindBy (xpath = "//a[text()='Properties']")
     public WebElement PropertiesListLinki;
 
-    @FindBy (partialLinkText = "General Data")
+    @FindBy (xpath = "//*[text()='General Data']")
     public WebElement GeneralDataListLinki;
 
     @FindBy (xpath = "(//div[@class='caption'])[2]")
@@ -351,7 +351,7 @@ public class QAConcortPage {
     @FindBy (xpath ="(//div[@class='col-md-2 name'])[2]")
     public WebElement nameListYazisi;
 
-    @FindBy (xpath ="(//*[@type='text'][1])")
+    @FindBy (xpath ="(//*[@type='text'])[2]")
     public WebElement nameListTextBoxi;
 
     @FindBy (xpath ="(//div[@class='col-md-2 name'])[3]")
@@ -366,32 +366,32 @@ public class QAConcortPage {
     @FindBy (xpath = "//*[@title='Phone']")
     public WebElement phoneListTextBoxi;
 
-    @FindBy(xpath = "//input[@value='josue.bradtke@gmail.com']")
+    @FindBy(xpath = "//input[@id='Email']")
     public WebElement EmailListTextBoxi;
 
-    @FindBy(id = "//*[@id='IDGroup']")
+    @FindBy(id  = "//*[@id='IDGroup']")
     public WebElement GroupDropDownListBoxi;
 
     @FindBy(xpath = "(//button[@class='btn green'])[1]")
     public WebElement hotelDataListSaveButonu;
 
-    @FindBy(xpath = "(//i[@class='fa fa-check'])[1]")
-    public WebElement saveListIkonu;
+    @FindBy(xpath = "(//div[@class='col-md-2 name'])[5]")
+    public WebElement emailListYazisi;
 
     @FindBy(xpath = "//*[text()='Hotel was updated successfully']")
     public WebElement hotelDataListSuccesfullYazisi;
 
-    @FindBy(xpath = "//*[text()='OK'")
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement alertOKListButonu;
 
     @FindBy(id = "btnDelete")
     public WebElement deleteListButonu;
 
-    @FindBy (xpath = "(//div[@class='caption'])[4]")
-    public WebElement deleteHotelYaziElementi;
+    @FindBy (xpath = "(//button[@type='button'])[6]")
+    public WebElement alertOk2;
 
-    @FindBy(xpath = "//a[@class='collapse']")
-    public WebElement deleteListIkonu;
+    @FindBy(xpath = "//*[text()='Would you like to continue?']")
+    public WebElement wouldULikeToContinue;
 
     //US006test locatorleri
 
@@ -540,21 +540,23 @@ public class QAConcortPage {
     @FindBy(className = "bootbox-body")
     public WebElement hotelRoomFailSaveMessage;
 
-    public void details(){
+    public void details() throws InterruptedException {
         QAConcortPage qaConcortPage = new QAConcortPage();
         ArrayList<Integer>random=new ArrayList<>();
         int count=0;
         random.add(0);
-        while (count<=3){
+        while (count<=1){
             Random rnd = new Random();
             int detail = rnd.nextInt(10) + 1;
             if (!random.contains(detail)){
                 random.add(detail);
                 Assert.assertTrue(Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isDisplayed(),"Details Button is not Displayed");
                 Assert.assertTrue( Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).isEnabled());
+                Thread.sleep(2000);
                 Driver.getDriver().findElement(By.xpath("(//a[contains(text(), ' Details')])[" + detail + "]")).click();
                 Assert.assertEquals(qaConcortPage.editHotelRoomElement.getText(), ConfigReader.getProperty("EditHotelRoomElementi"),"Edit Hotelroom element is not Displayed");
                 Assert.assertTrue(qaConcortPage.generalDataElement.isDisplayed());
+                Thread.sleep(2000);
                 Assert.assertEquals(qaConcortPage.hotelRoomDataElement.getText(),ConfigReader.getProperty("HotelRoomDataElementi"));
                 Driver.getDriver().navigate().back();
                 count++;

@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class US0010PositiveTest {
 
@@ -16,18 +17,17 @@ public class US0010PositiveTest {
      */
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
+        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu, 5);
         qaConcortPage.loginButonu.click();
 
         Assert.assertTrue(qaConcortPage.theBestHotelInTheRegionYazisiUs010.isDisplayed(), "The best hotel in the region yazisi gorunmuyor!");
-       Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

@@ -27,12 +27,10 @@ public class Tc_003 {
 
         qaConcortPage.hotelDetailsButton.click();
         Assert.assertTrue(qaConcortPage.hotelRoomDataHotelDropDown.isDisplayed());
-        Select hotel=new Select(qaConcortPage.hotelRoomDataHotelDropDown);
+        Select hotel = new Select(qaConcortPage.hotelRoomDataHotelDropDown);
         hotel.selectByIndex(6);
 
-
-
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).
                 sendKeys(ConfigReader.getProperty("HotelRoomCodeElement")).
                 sendKeys(Keys.TAB).
@@ -44,11 +42,11 @@ public class Tc_003 {
                 perform();
         Thread.sleep(2000);
 
-        WebElement description=qaConcortPage.hotelRoomDescriptionElement;
+        WebElement description = qaConcortPage.hotelRoomDescriptionElement;
         description.clear();
         description.sendKeys(ConfigReader.getProperty("HotelRoomDescription"));
 
-        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop,qaConcortPage.hotelRoomPriceBox).perform();
+        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop, qaConcortPage.hotelRoomPriceBox).perform();
 
         Select roomType = new Select(qaConcortPage.hotelRoomRoomType);
         roomType.selectByIndex(7);

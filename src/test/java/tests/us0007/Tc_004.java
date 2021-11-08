@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class Tc_004 {
@@ -21,17 +22,17 @@ public class Tc_004 {
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ConcortHotelLogin();
         qaConcortPage.hotelRooms();
+        Thread.sleep(2000);
         qaConcortPage.details();
 
 
         qaConcortPage.hotelDetailsButton.click();
         Assert.assertTrue(qaConcortPage.hotelRoomDataHotelDropDown.isDisplayed());
-        Select hotel=new Select(qaConcortPage.hotelRoomDataHotelDropDown);
+        Select hotel = new Select(qaConcortPage.hotelRoomDataHotelDropDown);
         hotel.selectByIndex(6);
 
 
-
-        Actions actions=new Actions(Driver.getDriver());
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).
                 sendKeys(ConfigReader.getProperty("HotelRoomCodeElement")).
                 sendKeys(Keys.TAB).
@@ -43,11 +44,11 @@ public class Tc_004 {
                 perform();
         Thread.sleep(2000);
 
-        WebElement description=qaConcortPage.hotelRoomDescriptionElement;
+        WebElement description = qaConcortPage.hotelRoomDescriptionElement;
         description.clear();
         description.sendKeys(ConfigReader.getProperty("HotelRoomDescription"));
 
-        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop,qaConcortPage.hotelRoomPriceBox).perform();
+        actions.dragAndDrop(qaConcortPage.hotelRoomPriceDragDrop, qaConcortPage.hotelRoomPriceBox).perform();
 
         Select roomType = new Select(qaConcortPage.hotelRoomRoomType);
         roomType.selectByIndex(7);
@@ -60,7 +61,7 @@ public class Tc_004 {
                 perform();
 
         qaConcortPage.hotelRoomIsAvailable.click();
-Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(),"Save button not found");
+        Assert.assertTrue(qaConcortPage.hotelRoomSaveButton.isDisplayed(), "Save button not found");
         actions.sendKeys(Keys.TAB).
                 sendKeys(Keys.ENTER).
                 perform();

@@ -52,7 +52,7 @@ public class ReusableMethods {
     }
 
     //======Bottom of the page====//
-    public void scrollDown() {
+    public static void scrollDown() {
         JavascriptExecutor js = ((JavascriptExecutor) Driver.getDriver());
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
@@ -107,17 +107,17 @@ public class ReusableMethods {
     }
 
     //===============Explicit Wait==============//
-    public WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
+    public static  WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public WebElement waitForVisibility(By locator, int timeout) {
+    public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public WebElement waitForClickablility(WebElement element, int timeout) {
+    public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }

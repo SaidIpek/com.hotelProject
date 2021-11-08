@@ -16,7 +16,6 @@ public class Tc_002 {
 
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
 
-
         qaConcortPage.ilkLoginLinki.click();
 
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
@@ -24,7 +23,6 @@ public class Tc_002 {
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
 
         qaConcortPage.loginButonu.click();
-
 
         WebElement dropDown = qaConcortPage.systemManagementSekmesi;
 

@@ -11,21 +11,22 @@ import org.testng.annotations.Test;
 import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class Tc_004 {
 
     //4-Seçilen room'un text box , dropdown ve "Book This Room" butonu etkin olmali.
 
     @Test
-    public void test() throws InterruptedException {
+    public void test() {
         QAConcortPage qaConcortPage = new QAConcortPage();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+
         qaConcortPage.ConcortHotelRoomsGiris();
         qaConcortPage.ConcortHotelRoomsBilgiGiris();
         qaConcortPage.TodBruenOdaSayfasindakiLogIn.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAKullaniciPassword"));
-        wait.until(ExpectedConditions.elementToBeClickable(qaConcortPage.loginButonu));
+        ReusableMethods.waitForClickablility(qaConcortPage.loginButonu, 10);
         qaConcortPage.loginButonu.click();
 
         Assert.assertTrue(qaConcortPage.TodBruenOdaSayfasindakiCheckinDateBox.isEnabled(), "Check in date boxi etkin degil!");
