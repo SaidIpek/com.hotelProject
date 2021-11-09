@@ -6,7 +6,7 @@ import pages.QAConcortPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class TC_001 {
+public class Tc_001 {
 
     @Test
     public void test() throws InterruptedException {
