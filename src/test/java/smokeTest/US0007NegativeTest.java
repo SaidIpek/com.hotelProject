@@ -58,7 +58,7 @@ public class US0007NegativeTest extends TestBaseRapor {
         qaConcortPage.hotelRoomSaveButton.click();
         extentTest.info("#Save Button# Elements tested");
         Assert.assertNotEquals(qaConcortPage.hotelRoomFailSaveMessage.getText(),ConfigReader.getProperty("HotelRoomSuccess"),"Passed by entering wrong information");
-        extentTest.fail("Wrong Information Update Failed");
+        extentTest.pass("Wrong Information Update Failed");
         ReusableMethods.getScreenshot("Wrong Information Failed");
 
 
