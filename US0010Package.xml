@@ -2,8 +2,6 @@
 <suite name="US010'un package testi">
  <test name="US010">
      <packages>
-         <package name="tests.us0005"></package>
-         <package name="tests.us0007"></package>
          <package name="tests.us0010"></package>
      </packages>
  </test>
